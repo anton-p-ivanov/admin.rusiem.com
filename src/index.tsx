@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import AppView from './views/AppView';
+
 ReactDOM.render(
   <React.StrictMode>
-    App bootstrap
+    <AppView />
   </React.StrictMode>,
   document.getElementById('root'),
 );
