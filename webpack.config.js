@@ -1,5 +1,10 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
 const path = require("path");
+const fs = require("fs");
+
+const envLocal = path.resolve(__dirname, ".env.local");
+const env = path.resolve(__dirname, ".env");
 
 module.exports = {
   mode: "development",
@@ -10,6 +15,9 @@ module.exports = {
     publicPath: "/"
   },
   plugins: [
+    new Dotenv({
+      path: fs.existsSync(envLocal) ? envLocal : env
+    }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "public", "index.html"),
     })
