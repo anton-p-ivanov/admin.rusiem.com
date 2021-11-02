@@ -1,0 +1,19 @@
+@import "src/assets/variables";
+
+.form__label {
+  display: block;
+  margin-bottom: .5rem;
+
+  &--required {
+    position: relative;
+
+    &::after {
+      margin-left: 5px;
+      position: absolute;
+      content: '*';
+      font-family: monospace;
+      color: $color-danger;
+      top: 2px;
+    }
+  }
+}

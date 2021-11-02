@@ -1,0 +1,9 @@
+@import "src/assets/variables";
+
+.form__hint {
+  display: block;
+  font-size: $font-size-sm;
+  line-height: $line-height-sm;
+  margin-top: .25rem;
+  color: $color-gray-dark;
+}
