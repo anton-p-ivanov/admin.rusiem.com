@@ -1,10 +1,18 @@
 import React from 'react';
 
-import { TAuthProps } from './types';
+import { AuthLayoutForm } from './components';
+
+import type { TAuthProps } from './types';
+
+import './styles.scss';
 
 const AuthLayout: React.FC<TAuthProps> = () => (
   <div className="layout layout--auth">
-    Auth layout
+    <AuthLayoutForm />
+    <div className="layout__copyright">
+      © ООО &quot;РуСИЕМ&quot;,&nbsp;
+      {new Date().getFullYear()}
+    </div>
   </div>
 );
 
