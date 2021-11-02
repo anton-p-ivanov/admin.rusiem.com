@@ -18,6 +18,7 @@ const useFields = (): TUseFields => {
     const value = state.data[field.name];
     const extend = {
       value: typeof value !== 'undefined' ? value : '',
+      errors: state.errors[field.name],
       onChange: (v: typeof value) => {
         update({ ...state, data: { ...state.data, [field.name]: v } });
       },
