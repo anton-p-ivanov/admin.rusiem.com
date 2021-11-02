@@ -52,7 +52,7 @@ const FormInput: TFormInput = (props) => {
     //   return <Input.TextArea {...{ ...fieldAttrs, value: field.value as string }} />;
     default:
       return (
-        <Input.Text field={field} />
+        <Input.Text field={field} ref={field.ref} />
       );
   }
 };

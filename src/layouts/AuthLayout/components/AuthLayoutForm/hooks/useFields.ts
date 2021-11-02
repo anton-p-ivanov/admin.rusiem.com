@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 
 import Store from 'store';
 
@@ -9,6 +9,7 @@ import type { TFormFields } from 'components/Form';
 type TUseFields = TFormFields;
 
 const useFields = (): TUseFields => {
+  const ref = useRef<HTMLInputElement>(null);
   const { formView } = useContext(Store);
   const { state, update } = formView;
 
@@ -24,6 +25,16 @@ const useFields = (): TUseFields => {
 
     fields[key] = { ...field, ...extend };
   });
+
+  if (fields.username.value) {
+    fields.password.ref = ref;
+  } else {
+    fields.username.ref = ref;
+  }
+
+  useEffect(() => {
+    if (ref.current) ref.current.focus();
+  }, []);
 
   return (
     fields
