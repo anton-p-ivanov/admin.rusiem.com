@@ -1,7 +1,8 @@
 import React from 'react';
 
-import Store, { TReducersContext } from 'store';
 import { AuthLayout, MainLayout } from 'layouts';
+import Store, { TReducersContext } from 'store';
+import formViewReducer from 'views/FormView/hooks/useReducer';
 
 import useToken from './hooks/useToken';
 
@@ -9,7 +10,7 @@ const AppView: React.FC = () => {
   const { token, setToken } = useToken();
 
   const state: TReducersContext = {
-    /**/
+    formView: formViewReducer(),
   };
 
   return (
