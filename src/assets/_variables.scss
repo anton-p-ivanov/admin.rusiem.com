@@ -1,0 +1,107 @@
+@use "sass:math";
+
+/**
+ * Font
+ */
+$font-size-base: 15px;
+$font-size-sm: .875em;
+$font-size-lg: 1.125rem;
+
+/**
+ * Font weight
+ */
+$font-weight-bold: 600;
+
+/**
+ * Text line height
+ */
+$line-height-base: 1.4rem;
+$line-height-sm: $line-height-base * .875;
+
+/**
+ * Colors
+ */
+$color-blue: #0d6efd;
+$color-green: #198754;
+$color-orange: #fd7e14;
+$color-red: #dc3545;
+
+$color-info: $color-blue;
+$color-success: $color-green;
+$color-warning: $color-orange;
+$color-danger: $color-red;
+
+$color-primary: $color-blue;
+$color-secondary: $color-orange;
+
+$color-white: #ffffff;
+$color-gray-lightest: #e9ecef;
+$color-gray-light: #ced4da;
+$color-gray-medium: #6c757d;
+$color-gray-dark: #343a40;
+$color-black: #212529;
+
+$color-text-body: #000;
+$color-text-primary: $color-white;
+
+$colors: (
+        "info": $color-info,
+        "success": $color-success,
+        "warning": $color-warning,
+        "danger": $color-danger,
+        "primary": $color-primary,
+        "default": $color-black,
+        "muted": $color-gray-light
+);
+
+$alignments: (
+        "left": left,
+        "right": right,
+        "center": center
+);
+
+/**
+ * Grid
+ */
+$grid-gutter-width: 1rem;
+$grid-columns: 5;
+$grid-flex-basis: math.div(100%, $grid-columns);
+$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, xxl: 1400px) !default;
+
+/**
+ * Shadows
+ */
+$shadow: 0 1px 2px rgba($color-black, .25);
+
+/**
+ * Borders
+ */
+$border-radius: 2px;
+
+/**
+ * Buttons
+ */
+$button-border-width: 1px;
+
+/**
+ * Inputs
+ */
+$input-border-width: 1px;
+$input-border-color: $color-gray-light;
+$input-padding-x: .625rem;
+$input-padding-y: .75rem;
+/**
+ * Tables
+ */
+
+$cell-padding-x: 1rem;
+$cell-padding-y: .5rem;
+
+$header-height: 70px;
+$sidebar-width: 15.625rem;
+
+/**
+ * Transitions
+ */
+$transition-speed: .2s;
+$transition-function: ease-in-out;

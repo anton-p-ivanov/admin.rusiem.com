@@ -1,0 +1,75 @@
+@import "src/assets/variables";
+
+$button-colors: (
+        info: (background-color: $color-info, color: $color-white),
+        success: (background-color: $color-success, color: $color-white),
+        warning: (background-color: $color-warning, color: $color-white),
+        danger: (background-color: $color-danger, color: $color-white),
+        primary: (background-color: $color-primary, color: $color-white),
+        default: (background-color: $color-white, color: $color-text-body, border-color: $color-gray-light),
+);
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: solid $button-border-width transparent;
+  padding: .625rem .75rem;
+  line-height: 1.25rem;
+  height: 2.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: $border-radius;
+  transition: all $transition-speed $transition-function;
+  text-decoration: none;
+
+  &--disabled {
+    cursor: not-allowed;
+
+    &, &:hover, &:focus, &:active {
+      background-color: transparent;
+      border-color: transparent;
+      color: $color-gray-light;
+    }
+  }
+
+  @each $status, $color-map in $button-colors {
+    &--#{$status} {
+      @each $property, $color in $color-map {
+        #{$property}: $color;
+      }
+
+      &:hover,
+      &:active {
+        background-color: darken(map_get($color-map, 'background-color'), 10%);
+        @if map_has_key($color-map, 'border-color') {
+          border-color: darken(map_get($color-map, 'border-color'), 10%);
+        }
+      }
+    }
+
+    &--disabled {
+      cursor: not-allowed;
+
+      &, &:hover, &:focus, &:active {
+        background-color: $color-gray-lightest;
+        border-color: $color-gray-lightest;
+        color: $color-gray-light;
+      }
+    }
+  }
+
+  &--inverse {
+    &.btn--disabled {
+      background-color: $color-white;
+      border-color: $color-white;
+      color: $color-gray-light;
+    }
+  }
+
+  &:hover, &:focus, &:active {
+    text-decoration: none;
+  }
+}
