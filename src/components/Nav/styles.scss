@@ -4,4 +4,14 @@
   display: block;
   margin: 0;
   padding: 0;
+
+  &--group {
+    overflow: hidden;
+    margin-left: 1.5rem;
+    transition: height $transition-speed $transition-function;
+  }
+
+  &--collapsed {
+    //height: 0;
+  }
 }

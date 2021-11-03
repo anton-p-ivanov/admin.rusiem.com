@@ -1,6 +1,8 @@
 import React from 'react';
+import { v4 } from 'uuid';
 
 import Nav from 'components/Nav';
+import { NavItem, NavSection } from 'components/Nav/components';
 
 import logo from 'assets/images/rusiem_black.svg';
 import items from 'config/navigation';
@@ -15,7 +17,13 @@ const SidebarPane: React.FC = () => (
       </a>
     </div>
     <div className="sidebar-pane__nav">
-      <Nav variant="sidebar" items={items} />
+      <Nav variant="sidebar">
+        {items.map((item) => (
+          item.items
+            ? <NavSection title={item.title} items={item.items} key={v4()} />
+            : <NavItem item={item} key={v4()} />
+        ))}
+      </Nav>
     </div>
   </div>
 );

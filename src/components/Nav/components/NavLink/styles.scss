@@ -1,0 +1,27 @@
+@import "src/assets/variables";
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  transition: $transition-speed $transition-function;
+
+  &__icon {
+    display: flex;
+    color: $color-gray-medium;
+    margin-right: .5rem;
+  }
+
+  &__text,
+  &__link {
+    flex: 1 0 auto;
+    color: inherit;
+  }
+
+  &--active,
+  &:focus,
+  &:hover {
+    color: $color-primary;
+    text-decoration: none;
+  }
+}

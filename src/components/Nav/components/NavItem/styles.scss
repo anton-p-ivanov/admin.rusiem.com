@@ -1,0 +1,15 @@
+@import "src/assets/variables";
+
+.nav__item {
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  color: $color-gray-dark;
+  cursor: pointer;
+  display: flex;
+  line-height: 1.8;
+  padding: .5rem 1.5rem;
+  transition: $transition-speed $transition-function;
+  white-space: nowrap;
+  width: 100%;
+}
