@@ -1,6 +1,10 @@
 import React from 'react';
 
+import Nav from 'components/Nav';
+
 import logo from 'assets/images/rusiem_black.svg';
+import items from 'config/navigation';
+
 import './styles.scss';
 
 const SidebarPane: React.FC = () => (
@@ -11,7 +15,7 @@ const SidebarPane: React.FC = () => (
       </a>
     </div>
     <div className="sidebar-pane__nav">
-      Navigation
+      <Nav variant="sidebar" items={items} />
     </div>
   </div>
 );
