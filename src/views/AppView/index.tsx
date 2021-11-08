@@ -1,8 +1,7 @@
 import React from 'react';
 
 import { AuthLayout, MainLayout } from 'layouts';
-import Store, { TReducersContext } from 'store';
-import formViewReducer from 'views/FormView/hooks/useReducer';
+import withStore from 'store';
 
 import useToken from './hooks/useToken';
 import './styles.scss';
@@ -10,15 +9,7 @@ import './styles.scss';
 const AppView: React.FC = () => {
   const { token, setToken } = useToken();
 
-  const state: TReducersContext = {
-    formView: formViewReducer(),
-  };
-
-  return (
-    <Store.Provider value={state}>
-      {token ? <MainLayout /> : <AuthLayout setToken={setToken} />}
-    </Store.Provider>
-  );
+  return <>{token ? <MainLayout /> : <AuthLayout setToken={setToken} />}</>;
 };
 
-export default AppView;
+export default withStore(AppView);

@@ -17,8 +17,6 @@ export type TReducerStatus =
   | 'SUBMIT_SUCCEED'
   | 'SUBMIT_FAILED';
 
-export type TReducer = Reducer<TReducerState, TReducerAction>;
-
 export type TReducerState = {
   status: TReducerStatus;
   errors: TReducerErrors;
@@ -31,3 +29,5 @@ export type TReducerAction = {
   type: number;
   payload?: TReducerState;
 };
+
+export type TReducer = Reducer<TReducerState, TReducerAction>;

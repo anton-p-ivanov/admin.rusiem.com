@@ -1,7 +1,7 @@
-import type { TUseReducer } from 'views/FormView/hooks/useReducer';
+import type { TFormViewReducer } from 'views/FormView/types';
 
 export type TReducers = {
-  formView: TUseReducer
+  formView: TFormViewReducer;
 };
 
-export type TReducersContext = TReducers;
+export type TStoreContext = TReducers;

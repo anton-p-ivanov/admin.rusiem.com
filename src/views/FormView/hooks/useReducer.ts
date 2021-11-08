@@ -1,16 +1,10 @@
 import React from 'react';
 
 import Reducer, { handlers, INITIAL_STATE } from '../store/reducer';
-
 import type { TReducerState } from '../store/types';
+import type { TFormViewReducer } from '../types';
 
-export type TUseReducer = {
-  state: TReducerState;
-  update: (state: TReducerState) => void;
-  reset: () => void;
-};
-
-const useReducer = (initialState?: TReducerState): TUseReducer => {
+const useReducer = (initialState?: TReducerState): TFormViewReducer => {
   const [state, dispatch] = React.useReducer(Reducer, initialState || INITIAL_STATE);
 
   const update = (reducerState: TReducerState) => {

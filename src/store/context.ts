@@ -1,17 +1,20 @@
 import React from 'react';
 
 import { INITIAL_STATE as FORM_VIEW_STATE } from 'views/FormView/store/reducer';
+import { INITIAL_STATE as LIST_VIEW_STATE } from 'views/ListView/store/reducer';
 
-import { TReducersContext } from './types';
+import type { TStoreContext } from './types';
 
-export const DEFAULT_VALUE: TReducersContext = {
+export default React.createContext<TStoreContext>({
   formView: {
     state: FORM_VIEW_STATE,
-    update: () => false,
-    reset: () => false,
+    update: () => null,
+    reset: () => null,
   },
-};
-
-const Context = React.createContext<TReducersContext>(DEFAULT_VALUE);
-
-export default Context;
+  listView: {
+    state: LIST_VIEW_STATE,
+    update: () => null,
+    refresh: () => null,
+    request: () => null,
+  },
+});

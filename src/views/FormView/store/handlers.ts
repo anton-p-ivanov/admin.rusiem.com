@@ -1,14 +1,13 @@
-import * as Types from './actions';
-
+import * as types from './actions';
 import type { TReducerAction, TReducerState } from './types';
 
 const updateState = (state: TReducerState): TReducerAction => ({
-  type: Types.UPDATE_STATE,
+  type: types.UPDATE_STATE,
   payload: state,
 });
 
 const resetState = (): TReducerAction => ({
-  type: Types.RESET_STATE,
+  type: types.RESET_STATE,
 });
 
 export {
