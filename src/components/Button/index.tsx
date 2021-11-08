@@ -1,9 +1,8 @@
 import React from 'react';
 
-import { Utils } from 'utils';
+import classNames from 'classnames';
 
 import type { TButtonProps } from './types';
-
 import './styles.scss';
 
 const Button: React.FC<TButtonProps> = (props) => {
@@ -16,14 +15,20 @@ const Button: React.FC<TButtonProps> = (props) => {
     children,
   } = props;
 
-  const className = Utils.className([
+  const className = classNames(
     'btn',
-    isDisabled ? 'btn--disabled' : undefined,
+    isDisabled && 'btn--disabled',
     variant && `btn--${variant}`,
-  ]);
+  );
 
   return (
-    <button name={name} type={isSubmit ? 'submit' : 'button'} className={className} disabled={isDisabled} onClick={onClick}>
+    <button
+      name={name}
+      type={isSubmit ? 'submit' : 'button'}
+      className={className}
+      disabled={isDisabled}
+      onClick={onClick}
+    >
       {children}
     </button>
   );
