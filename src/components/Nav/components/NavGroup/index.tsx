@@ -6,7 +6,6 @@ import { v4 } from 'uuid';
 import { Icon } from 'components';
 
 import NavItem from '../NavItem';
-
 import type { TNavGroupProps } from './types';
 import './styles.scss';
 
@@ -34,7 +33,7 @@ const NavGroup: React.FC<TNavGroupProps> = ({ item }) => {
   return (
     <div className="nav__item nav__item--group">
       <NavItem item={item} variant="group-toggle" onClick={toggleGroup} ref={ref}>
-        <Icon name={height ? 'chevron-up' : 'chevron-down'} size="small" />
+        <Icon name="chevron-down" size="small" variant={!height ? 'collapsed' : 'expanded'} />
       </NavItem>
       <nav className="nav nav--group" style={{ height }} aria-hidden={!height}>
         {item.items && item.items.map((groupItem) => (
