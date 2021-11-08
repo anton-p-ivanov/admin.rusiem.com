@@ -5,6 +5,7 @@ import Store, { TReducersContext } from 'store';
 import formViewReducer from 'views/FormView/hooks/useReducer';
 
 import useToken from './hooks/useToken';
+import './styles.scss';
 
 const AppView: React.FC = () => {
   const { token, setToken } = useToken();
