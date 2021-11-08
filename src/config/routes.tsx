@@ -1,9 +1,10 @@
-import coreRoutes from 'modules/core/config/routes';
-
 import type { TRoute } from 'config/types';
+import * as contentConfig from 'modules/content/config';
+import * as coreConfig from 'modules/core/config';
 
 const routes: TRoute[] = [
-  ...coreRoutes,
+  ...coreConfig.routes,
+  ...contentConfig.routes,
 ];
 
 export default routes;
