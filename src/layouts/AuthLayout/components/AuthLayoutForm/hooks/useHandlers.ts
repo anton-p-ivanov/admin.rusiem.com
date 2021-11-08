@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 
-import Store from 'store';
-import { Utils } from 'utils';
-import Context from '../../../context';
-
 import type { AxiosRequestConfig, AxiosResponse } from 'axios';
+
+import { useStore } from 'store';
+import { Utils } from 'utils';
+
+import Context from '../../../context';
 
 type TUseHandlers = {
   submit: (event: React.FormEvent<HTMLFormElement>) => void,
@@ -16,13 +17,12 @@ type TAuthResponse = {
 
 const useHandlers = (): TUseHandlers => {
   const { setToken } = useContext(Context);
-  const { formView } = useContext(Store);
-  const { username, password } = formView.state.data;
+  const { formView } = useStore();
 
-  return ({
+  return {
     submit: (event) => {
       event.preventDefault();
-
+      const { username, password } = formView.state.data;
       const config: AxiosRequestConfig = {
         url: '/auth',
         method: 'POST',
@@ -48,7 +48,7 @@ const useHandlers = (): TUseHandlers => {
         .then(handlers.success)
         .catch(handlers.error);
     },
-  });
+  };
 };
 
 export default useHandlers;

@@ -1,16 +1,13 @@
-import { useContext, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
-import Store from 'store';
+import type { TFormFields } from 'components/Form';
+import { useStore } from 'store';
 
 import fields from '../fields';
 
-import type { TFormFields } from 'components/Form';
-
-type TUseFields = TFormFields;
-
-const useFields = (): TUseFields => {
+const useFields = (): TFormFields => {
   const ref = useRef<HTMLInputElement>(null);
-  const { formView } = useContext(Store);
+  const { formView } = useStore();
   const { state, update } = formView;
 
   Object.keys(fields).forEach((key) => {
