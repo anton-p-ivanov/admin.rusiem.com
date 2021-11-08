@@ -22,6 +22,15 @@
   &:focus,
   &:hover {
     color: $color-primary;
+  }
+}
+
+a.nav-link__link {
+  &, &:hover, &:focus, &:active {
     text-decoration: none;
+  }
+
+  &--active {
+    color: $color-primary;
   }
 }

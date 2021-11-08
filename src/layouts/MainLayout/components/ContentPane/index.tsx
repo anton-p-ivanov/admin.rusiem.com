@@ -6,13 +6,17 @@ import './styles.scss';
 
 const ContentPane: React.FC = () => (
   <div className="content-pane">
-    <Router.Switch>
-      {routes.map((route) => (
-        <Router.Route key={route.path} path={route.path} exact>
-          <route.component />
-        </Router.Route>
-      ))}
-    </Router.Switch>
+    <React.Suspense fallback="Loading ...">
+      <Router.Routes>
+        {routes.map((route) => (
+          <Router.Route
+            key={route.path}
+            path={route.path}
+            element={<route.component title={route.title} />}
+          />
+        ))}
+      </Router.Routes>
+    </React.Suspense>
   </div>
 );
 
