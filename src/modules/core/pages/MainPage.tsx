@@ -7,7 +7,7 @@ const MainPage: React.FC = () => {
 
   return (
     <PageView title={title}>
-      <div style={{ height: '100px' }}>Page content</div>
+      Page content
     </PageView>
   );
 };
