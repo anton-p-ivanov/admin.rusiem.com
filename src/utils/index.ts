@@ -1,7 +1,7 @@
 import API from './api';
 import className from './className';
 
-export const Utils = {
+export default {
   API,
   className,
 };

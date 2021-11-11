@@ -1,13 +1,13 @@
 // import Boolean from './Boolean';
 // import Checkbox from './Checkbox';
-// import Choices from './Choices';
-// import Date from './Date';
+import Choices from './Choices';
+import Date from './Date';
 // import DateTime from './DateTime';
 // import File from './File';
 // import Number from './Number';
-// import Password from './Password';
+import Password from './Password';
 // import Roles from './Roles';
-// import Select from './Select';
+import Select from './Select';
 // import Sites from './Sites';
 import Text from './Text';
 // import TextArea from './TextArea';
@@ -21,15 +21,15 @@ import Text from './Text';
 export {
   // Boolean,
   // Checkbox,
-  // Choices,
-  // Date,
+  Choices,
+  Date,
   // DateTime,
   // File,
   // Number,
-  // Password,
+  Password,
   // Roles,
   // Sites,
-  // Select,
+  Select,
   Text,
   // TextArea,
   // Workflow,

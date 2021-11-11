@@ -1,10 +1,10 @@
 import React from 'react';
+
 import { v4 } from 'uuid';
 
+import logo from 'assets/images/rusiem_black.svg';
 import Nav from 'components/Nav';
 import { NavItem, NavSection } from 'components/Nav/components';
-
-import logo from 'assets/images/rusiem_black.svg';
 import items from 'config/navigation';
 
 import './styles.scss';

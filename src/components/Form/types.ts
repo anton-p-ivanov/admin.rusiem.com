@@ -1,10 +1,8 @@
 import React from 'react';
 
+import FormActions from './components/FormActions';
 import FormField from './components/FormField';
 import FormGroup from './components/FormGroup';
-import FormActions from './components/FormActions';
-
-import type { TFormField, TFormFields } from './components/FormField';
 
 type TFormProps = {
   variant?: string;
@@ -17,4 +15,4 @@ export type TForm = React.FC<TFormProps> & {
   Actions: typeof FormActions;
 };
 
-export type { TFormField, TFormFields };
+export type { TFormField, TFormFields, TFormFieldsUnion } from './components/FormField/types';

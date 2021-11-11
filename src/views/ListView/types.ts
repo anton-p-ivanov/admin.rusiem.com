@@ -1,6 +1,7 @@
-import type { TDataViewColumn, TDataViewTemplates } from 'views/DataView/types';
+import React from 'react';
 
-import type { TReducerState } from './store/types';
+import type { TReducerData, TReducerState } from './store/types';
+import type { TDataColumn } from 'components/DataTable/types';
 
 export type TListViewProps = {
   endpoint: string;
@@ -8,14 +9,23 @@ export type TListViewProps = {
   columns: TListViewColumn[];
 };
 
-export type TListViewColumn = TDataViewColumn;
-export type TListViewTemplates = TDataViewTemplates;
+export type TListViewData = TReducerData;
+
+export type TListViewRow = {
+  data: TListViewData;
+};
+
+export type TListViewColumn = TDataColumn;
+export type TListViewTemplates = {
+  row: React.FC<TListViewRow>;
+  toolbar: React.FC;
+};
 
 export type TListViewReducer = {
   state: TReducerState;
   update: (state: TReducerState) => void;
-  request: (params: TListViewRequestConfig) => void;
   refresh: () => void;
+  request: (params: TListViewRequestConfig) => void;
 };
 
 export type TListViewRequestConfig = {
@@ -31,6 +41,7 @@ export type TListViewPagination = {
 };
 
 export type TListViewSort = {
+  [key: string]: string;
   sortBy: string;
   sortOrder: string;
 };

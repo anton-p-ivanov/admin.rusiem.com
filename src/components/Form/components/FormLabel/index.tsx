@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Utils } from 'utils';
+import classNames from 'classnames';
 
 import type { TFormLabelProps } from './types';
 
@@ -14,7 +14,7 @@ const FormLabel: React.FC<TFormLabelProps> = (props) => {
     children,
   } = props;
 
-  const className = Utils.className([
+  const className = classNames([
     'form__label',
     isRequired ? 'form__label--required' : undefined,
     variant && `form__label--${variant}`,

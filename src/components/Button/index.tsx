@@ -8,6 +8,7 @@ import './styles.scss';
 const Button: React.FC<TButtonProps> = (props) => {
   const {
     name,
+    size,
     isSubmit = false,
     isDisabled = false,
     variant = 'default',
@@ -18,6 +19,7 @@ const Button: React.FC<TButtonProps> = (props) => {
   const className = classNames(
     'btn',
     isDisabled && 'btn--disabled',
+    size && `btn--${size}`,
     variant && `btn--${variant}`,
   );
 

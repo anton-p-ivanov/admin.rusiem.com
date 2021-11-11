@@ -1,5 +1,6 @@
 import * as types from './actions';
 import * as handlers from './handlers';
+
 import type { TReducer, TReducerState } from './types';
 
 const INITIAL_STATE: TReducerState = {

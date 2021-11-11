@@ -1,8 +1,8 @@
 import React from 'react';
 
+import FormActions from './components/FormActions';
 import FormField from './components/FormField';
 import FormGroup from './components/FormGroup';
-import FormActions from './components/FormActions';
 
 import type { TForm } from './types';
 
@@ -21,5 +21,3 @@ Form.Group = FormGroup;
 Form.Actions = FormActions;
 
 export default Form;
-
-export type { TFormField, TFormFields } from './types';

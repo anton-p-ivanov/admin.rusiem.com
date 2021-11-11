@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { TNavItem } from 'config/types';
 
 export type TNavItemProps = {

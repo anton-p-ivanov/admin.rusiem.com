@@ -1,4 +1,5 @@
 import React from 'react';
+
 import classNames from 'classnames';
 
 import NavLink from '../NavLink';
@@ -7,7 +8,10 @@ import type { TNavItemProps } from './types';
 import './styles.scss';
 
 const NavItem = React.forwardRef<HTMLDivElement, TNavItemProps>((props, ref) => {
-  const className = classNames('nav__item', props.variant && `nav__item--${props.variant}`);
+  const className = classNames([
+    'nav__item',
+    props.variant && `nav__item--${props.variant}`,
+  ]);
 
   const onKeyPress = (event: React.KeyboardEvent<HTMLDivElement>) => {
     event.preventDefault();

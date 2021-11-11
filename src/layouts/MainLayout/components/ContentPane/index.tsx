@@ -2,6 +2,7 @@ import React from 'react';
 import * as Router from 'react-router-dom';
 
 import routes from 'config/routes';
+
 import './styles.scss';
 
 const ContentPane: React.FC = () => (
@@ -12,7 +13,7 @@ const ContentPane: React.FC = () => (
           <Router.Route
             key={route.path}
             path={route.path}
-            element={<route.component title={route.title} />}
+            element={<route.component />}
           />
         ))}
       </Router.Routes>

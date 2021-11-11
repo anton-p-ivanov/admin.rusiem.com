@@ -6,6 +6,7 @@ import { v4 } from 'uuid';
 import { Icon } from 'components';
 
 import NavItem from '../NavItem';
+
 import type { TNavGroupProps } from './types';
 import './styles.scss';
 

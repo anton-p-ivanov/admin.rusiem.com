@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Utils } from 'utils';
+import classNames from 'classnames';
 
 import FormError from '../FormError';
 import FormHint from '../FormHint';
@@ -14,7 +14,7 @@ import './styles.scss';
 const FormField: React.FC<TFormFieldProps> = (props) => {
   const { field, variant, children } = props;
 
-  const className = Utils.className([
+  const className = classNames([
     'form__field',
     field.type && `form__field--${field.type}`,
     field.errors && 'form__field--invalid',

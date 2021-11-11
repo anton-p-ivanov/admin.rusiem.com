@@ -1,7 +1,8 @@
-import type { TDataViewColumn, TDataViewTemplates } from 'views/DataView/types';
-// import * as Children from './components';
+import { NewsListRow, NewsListToolbar } from './components';
 
-const columns: TDataViewColumn[] = [
+import type { TListViewColumn, TListViewTemplates } from 'views/ListView/types';
+
+const columns: TListViewColumn[] = [
   { name: 'title', title: 'Название' },
   { name: 'publishedAt', title: 'Дата публ.' },
   { name: 'locale', title: 'Локаль' },
@@ -10,9 +11,9 @@ const columns: TDataViewColumn[] = [
   { name: 'context', title: '' },
 ];
 
-const templates: TDataViewTemplates = {
-  // row: Children.NewsListRow,
-  // toolbar: Children.NewsListToolbar,
+const templates: TListViewTemplates = {
+  row: NewsListRow,
+  toolbar: NewsListToolbar,
 };
 
 export default {

@@ -1,12 +1,11 @@
-import type { TFormField, TFormFieldValue } from 'components/Form/components/FormField/types';
+import type { TFormField } from 'components/Form/types';
+
+export type TTextField = TFormField<string> & {
+  attrs?: {
+    placeholder?: string
+  }
+};
 
 export type TTextProps = {
-  field: TFormField<TFormFieldValue>
-  // name: string;
-  // type?: string;
-  // value?: string;
-  // onChange?: (value: string) => void;
-  // placeholder?: string;
-  // isDisabled?: boolean;
-  // ref?: React.RefObject<HTMLInputElement>;
+  field: TTextField;
 };

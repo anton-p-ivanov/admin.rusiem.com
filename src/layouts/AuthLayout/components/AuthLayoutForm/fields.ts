@@ -1,5 +1,4 @@
-import type { TFormField, TFormFields } from 'components/Form';
-import { TFormFieldValue } from '../../../../components/Form/components/FormField/types';
+import type { TFormField, TFormFields } from 'components/Form/types';
 
 const username: TFormField<string> = {
   name: 'username',
@@ -21,8 +20,8 @@ const password: TFormField<string> = {
 };
 
 const fields: TFormFields = {
-  username: username as TFormField<TFormFieldValue>,
-  password: password as TFormField<TFormFieldValue>,
+  username,
+  password,
 };
 
 export default fields;

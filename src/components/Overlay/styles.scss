@@ -1,0 +1,11 @@
+@import "src/assets/variables";
+
+.overlay {
+  background: rgba($color-black, .5);
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}

@@ -1,0 +1,23 @@
+@import "src/assets/variables";
+
+.data-toolbar {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 1rem;
+
+  &__group {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    & ~ & {
+      margin-left: 1rem;
+    }
+  }
+
+  &__item {
+    & ~ & {
+      margin-left: .25rem;
+    }
+  }
+}

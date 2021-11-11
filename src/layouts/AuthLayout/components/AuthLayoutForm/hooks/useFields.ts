@@ -1,20 +1,20 @@
 import { useEffect, useRef } from 'react';
 
-import type { TFormFields } from 'components/Form';
-import { useStore } from 'store';
+import { useStore } from 'views/FormView/store';
 
 import fields from '../fields';
 
+import type { TFormFields } from 'components/Form/types';
+
 const useFields = (): TFormFields => {
   const ref = useRef<HTMLInputElement>(null);
-  const { formView } = useStore();
-  const { state, update } = formView;
+  const { state, update } = useStore();
 
   Object.keys(fields).forEach((key) => {
     const field = fields[key];
     const value = state.data[field.name];
     const extend = {
-      value: typeof value !== 'undefined' ? value : '',
+      // value: typeof value !== 'undefined' ? value : undefined,
       errors: state.errors[field.name],
       onChange: (v: typeof value) => {
         update({ ...state, data: { ...state.data, [field.name]: v } });

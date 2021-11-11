@@ -9,6 +9,12 @@ $button-colors: (
         default: (background-color: $color-white, color: $color-text-body, border-color: $color-gray-light),
 );
 
+$button-size-map: (
+  default: (padding: .625rem .75rem, line-height: 1.25rem, height: 2.5rem),
+  small: (padding: .5rem, line-height: 1rem, height: 2rem),
+  large: (padding: .625rem .75rem, line-height: 1.25rem, height: 2.5rem),
+);
+
 .btn {
   display: inline-flex;
   justify-content: center;
@@ -32,6 +38,14 @@ $button-colors: (
       background-color: transparent;
       border-color: transparent;
       color: $color-gray-light;
+    }
+  }
+
+  @each $size, $size-map in $button-size-map {
+    &--#{$size} {
+      @each $property, $value in $size-map {
+        #{$property}: $value;
+      }
     }
   }
 

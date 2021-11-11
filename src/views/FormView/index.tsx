@@ -1,7 +1,10 @@
 import React from 'react';
 
+import classNames from 'classnames';
+
 import { Form } from 'components';
-import { Utils } from 'utils';
+
+import withStore from './store';
 
 import type { TFormViewProps } from './types';
 
@@ -10,7 +13,7 @@ const FormView: React.FC<TFormViewProps> = (props) => {
 
   const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => onSubmit && onSubmit(event);
 
-  const className = Utils.className([
+  const className = classNames([
     'form-view',
     variant && `form-view--${variant}`,
   ]);
@@ -24,4 +27,5 @@ const FormView: React.FC<TFormViewProps> = (props) => {
   );
 };
 
+export { withStore };
 export default FormView;

@@ -1,11 +1,11 @@
 import React from 'react';
 
+import logo from 'assets/images/rusiem_black.svg';
 import { Button, Form } from 'components';
-import { FormView } from 'views';
+import FormView, { withStore } from 'views/FormView';
 
 import { useFields, useHandlers } from './hooks';
 
-import logo from 'assets/images/rusiem_black.svg';
 import './styles.scss';
 
 const AuthLayoutForm: React.FC = () => {
@@ -31,4 +31,4 @@ const AuthLayoutForm: React.FC = () => {
   );
 };
 
-export default AuthLayoutForm;
+export default withStore(AuthLayoutForm);

@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 
-import type { AxiosRequestConfig, AxiosResponse } from 'axios';
-
-import { useStore } from 'store';
-import { Utils } from 'utils';
+import API from 'utils/api';
+import { useStore } from 'views/FormView/store';
 
 import Context from '../../../context';
+
+import type { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 type TUseHandlers = {
   submit: (event: React.FormEvent<HTMLFormElement>) => void,
@@ -17,12 +17,12 @@ type TAuthResponse = {
 
 const useHandlers = (): TUseHandlers => {
   const { setToken } = useContext(Context);
-  const { formView } = useStore();
+  const { state, update } = useStore();
 
   return {
     submit: (event) => {
       event.preventDefault();
-      const { username, password } = formView.state.data;
+      const { username, password } = state.data;
       const config: AxiosRequestConfig = {
         url: '/auth',
         method: 'POST',
@@ -37,14 +37,14 @@ const useHandlers = (): TUseHandlers => {
           setToken(response.data.token)
         ),
         error: () => {
-          formView.update({
-            ...formView.state,
+          update({
+            ...state,
             errors: { password: ['E-Mail или пароль введены неверно.'] },
           });
         },
       };
 
-      Utils.API.request<TAuthResponse>(config)
+      API.request<TAuthResponse>(config)
         .then(handlers.success)
         .catch(handlers.error);
     },

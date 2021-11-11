@@ -1,7 +1,7 @@
 import React from 'react';
 
+import AuthLayoutForm from './components/AuthLayoutForm';
 import Context from './context';
-import { AuthLayoutForm } from './components';
 
 import type { TAuthProps } from './types';
 

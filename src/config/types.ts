@@ -12,3 +12,11 @@ export type TRoute = {
   title: string;
   component: React.FC;
 };
+
+export type TDataWorkflow = {
+  createdBy: string;
+  updatedBy: string;
+  createdAt: string;
+  updatedAt: string;
+  isDeleted: boolean;
+};

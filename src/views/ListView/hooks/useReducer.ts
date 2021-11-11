@@ -1,13 +1,13 @@
 import React from 'react';
 
-import type { AxiosRequestConfig } from 'axios';
-
-import { Utils } from 'utils';
+import Utils from 'utils';
 
 import Reducer, { handlers, INITIAL_STATE } from '../store/reducer';
+import useHandlers from './useHandlers';
+
 import type { TReducerData, TReducerState } from '../store/types';
 import type { TListViewReducer, TListViewRequestConfig } from '../types';
-import useReducerHandlers from './useReducerHandlers';
+import type { AxiosRequestConfig } from 'axios';
 
 /**
  * ListView component useReducer hook provides its state and state update methods.
@@ -15,7 +15,7 @@ import useReducerHandlers from './useReducerHandlers';
  */
 const useReducer = (initialState?: TReducerState): TListViewReducer => {
   const [state, dispatch] = React.useReducer(Reducer, initialState || INITIAL_STATE);
-  const { requestSucceed, requestFailed } = useReducerHandlers(state, dispatch);
+  const { requestSucceed, requestFailed } = useHandlers(state, dispatch);
 
   /**
    * Updates state with data provided
@@ -45,7 +45,8 @@ const useReducer = (initialState?: TReducerState): TListViewReducer => {
       sort: (state.sort.sortOrder === 'DESC' ? '-' : '') + state.sort.sortBy,
     };
 
-    const requestUrl = new URL(config.endpoint);
+    const baseUrl = (process.env.API_BASE_URL || '/').replace(/\/$/, '');
+    const requestUrl = new URL(`${baseUrl}${config.endpoint}`);
     Object.keys(searchParams).forEach((key) => {
       requestUrl.searchParams.append(key, searchParams[key]);
     });

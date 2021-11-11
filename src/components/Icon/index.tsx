@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { Utils } from 'utils';
+import classNames from 'classnames';
+import sprites from 'feather-icons/dist/feather-sprite.svg';
 
 import type { TIconProps } from './types';
 
-import sprites from 'feather-icons/dist/feather-sprite.svg';
 import './styles.scss';
 
 const Icon: React.FC<TIconProps> = (props) => {
@@ -12,7 +12,7 @@ const Icon: React.FC<TIconProps> = (props) => {
     name, size, title, variant,
   } = props;
 
-  const className = Utils.className([
+  const className = classNames([
     'feather',
     `feather--${name}`,
     size && `feather--${size}`,

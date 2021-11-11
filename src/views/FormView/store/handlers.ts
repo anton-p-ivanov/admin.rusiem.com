@@ -1,4 +1,5 @@
 import * as types from './actions';
+
 import type { TReducerAction, TReducerState } from './types';
 
 const updateState = (state: TReducerState): TReducerAction => ({

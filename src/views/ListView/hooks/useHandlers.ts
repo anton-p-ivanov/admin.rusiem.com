@@ -1,8 +1,10 @@
-import type { AxiosResponse } from 'axios';
+import React from 'react';
 
 import { handlers } from '../store/reducer';
+
 import type { TReducerAction, TReducerData, TReducerState } from '../store/types';
 import type { TListViewPagination } from '../types';
+import type { AxiosResponse } from 'axios';
 
 type TUseReducerHandlers = (
   state: TReducerState,
@@ -17,7 +19,7 @@ type TUseReducerHandlers = (
  * @param state
  * @param dispatch
  */
-const useReducerHandlers: TUseReducerHandlers = (state, dispatch) => {
+const useHandlers: TUseReducerHandlers = (state, dispatch) => {
   const requestSucceed = (response: AxiosResponse<TReducerData[]>) => {
     const pagination: TListViewPagination = {
       total: parseInt(response.headers['x-pagination-total'], 10),
@@ -48,4 +50,4 @@ const useReducerHandlers: TUseReducerHandlers = (state, dispatch) => {
   };
 };
 
-export default useReducerHandlers;
+export default useHandlers;

@@ -16,7 +16,7 @@ const Reducer: TReducer = (state, action) => {
 
   switch (action.type) {
     case types.RESET_STATE:
-      return { ...state, INITIAL_STATE };
+      return { ...state, ...INITIAL_STATE };
 
     case types.UPDATE_STATE:
       return { ...state, ...payload, timestamp: new Date().getTime() };

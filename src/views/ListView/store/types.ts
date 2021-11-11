@@ -2,9 +2,8 @@ import { Reducer } from 'react';
 
 import type { TListViewPagination, TListViewSort } from '../types';
 
-export type TReducerData = {
-  [key: string]: string | string[] | boolean | number;
-};
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type TReducerData = any;
 
 export type TReducerStatus =
   | 'WAITING'

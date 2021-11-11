@@ -1,5 +1,5 @@
-import { TFormField, TFormFieldValue } from '../FormField/types';
+import type { TFormFieldsUnion } from '../FormField/types';
 
 export type TFormInputProps = {
-  field: TFormField<TFormFieldValue>;
+  field: TFormFieldsUnion;
 };
