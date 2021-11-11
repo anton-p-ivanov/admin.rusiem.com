@@ -11,9 +11,9 @@ const useFields = (): TFormFields => {
     const field = fields[key] as TFormField<string>;
     const value = state.data[field.name];
     const extend = {
-      value: (state.data[field.name] || field.defaultValue) as string,
+      value: (typeof value === 'undefined' ? field.defaultValue : value) as string,
       errors: state.errors[field.name],
-      onChange: (v: typeof value) => {
+      onChange: (v: string) => {
         update({ ...state, data: { ...state.data, [field.name]: v } });
       },
     };

@@ -1,4 +1,7 @@
-import { TFormField, TFormFields } from 'components/Form/types';
+import API from 'utils/api';
+
+import type { TSelectOptions } from 'components/Form/components/FormInput/components/Select';
+import type { TFormField, TFormFields } from 'components/Form/types';
 
 const title: TFormField<string> = {
   name: 'title',
@@ -20,6 +23,10 @@ const site: TFormField<string> = {
   label: 'Сайт',
   hint: 'Выберите сайт, на котором опубликована новость',
   defaultValue: '',
+  attrs: {
+    placeholder: '- Любой сайт -',
+    optionsCallback: (): Promise<TSelectOptions> => API.lookup<TSelectOptions>('/sites'),
+  },
 };
 
 const locale: TFormField<string> = {
@@ -29,11 +36,8 @@ const locale: TFormField<string> = {
   hint: 'Выберите язык, на котором написана новость',
   defaultValue: '',
   attrs: {
-    options: [
-      { value: '', label: 'Любой язык' },
-      { value: 'RU', label: 'Russian' },
-      { value: 'EN', label: 'English' },
-    ],
+    placeholder: '- Любой язык -',
+    optionsCallback: (): Promise<TSelectOptions> => API.lookup<TSelectOptions>('/locales'),
   },
 };
 

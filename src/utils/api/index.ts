@@ -29,6 +29,17 @@ const API = {
     return axiosInstance.request({ ...config, headers });
   },
 
+  lookup: async <T>(url: string): Promise<T> => {
+    const headers = {
+      'X-Lookup-Request': 'true',
+    };
+
+    const results = await API
+      .request<T>({ url, headers })
+      .then((response) => response.data);
+
+    return Promise.resolve(results);
+  },
 };
 
 export default API;

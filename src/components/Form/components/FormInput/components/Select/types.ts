@@ -1,12 +1,15 @@
 import type { TFormField } from 'components/Form/types';
 
+export type TSelectFieldAttributes = {
+  options?: TSelectOptions,
+  optionsCallback?: () => Promise<TSelectOptions>;
+  placeholder?: string,
+  isMultiple?: boolean,
+  size?: number,
+};
+
 export type TSelectField = TFormField<string | string[]> & {
-  attrs?: {
-    options: TSelectOptions,
-    placeholder?: string,
-    isMultiple?: boolean,
-    size?: number,
-  }
+  attrs?: TSelectFieldAttributes
 };
 
 export type TSelectProps = {

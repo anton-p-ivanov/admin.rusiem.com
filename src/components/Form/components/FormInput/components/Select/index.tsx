@@ -1,24 +1,43 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
+import { TSelectFieldAttributes, TSelectOptions } from './types';
 
 import type { TSelectProps } from './types';
 import './styles.scss';
 
 const Select: React.FC<TSelectProps> = ({ field }) => {
+  const DEFAULT_ATTRS: TSelectFieldAttributes = {
+    options: [],
+    isMultiple: false,
+  };
+
   const {
-    name,
-    value,
-    isDisabled = false,
-    onChange,
-    attrs,
+    name, value, isDisabled = false, onChange, attrs = DEFAULT_ATTRS,
   } = field;
+
+  const {
+    optionsCallback, placeholder, size, isMultiple = false,
+  } = attrs;
+
+  const [options, setOptions] = useState<TSelectOptions>(attrs.options || []);
+
+  useEffect(() => {
+    if (typeof optionsCallback === 'function') {
+      optionsCallback()
+        .then((response) => setOptions(response))
+        .catch(() => setOptions([]));
+    }
+
+    return () => setOptions([]);
+  }, [optionsCallback]);
 
   const onChangeHandler = ({ target }: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedValue = Array.from(target.selectedOptions).map((option) => option.value);
     if (selectedValue.length > 0) {
-      return onChange && onChange(attrs?.isMultiple ? selectedValue : (selectedValue.shift() || ''));
+      return onChange && onChange(isMultiple ? selectedValue : (selectedValue.shift() || ''));
     }
 
-    return onChange && onChange(attrs?.isMultiple ? [] : '');
+    return onChange && onChange(isMultiple ? [] : '');
   };
 
   return (
@@ -27,12 +46,12 @@ const Select: React.FC<TSelectProps> = ({ field }) => {
       name={name}
       value={value}
       disabled={isDisabled}
-      multiple={attrs && attrs.isMultiple}
+      multiple={isMultiple}
       onChange={onChangeHandler}
-      size={attrs && attrs.size}
+      size={size}
     >
-      {attrs && attrs.placeholder && <option value="">{attrs.placeholder}</option>}
-      {attrs && attrs.options.map((option) => (
+      {placeholder && <option value="">{placeholder}</option>}
+      {options.map((option) => (
         <option value={option.value} disabled={option.isDisabled} key={`option-${name}-${option.value}`}>
           {option.label}
         </option>
