@@ -7,7 +7,9 @@ import withStore from 'views/FormView/store';
 import useFields from './hooks/useFields';
 import useHandlers from './hooks/useHandlers';
 
-const NewsListCanvas: React.FC = () => {
+import './styles.scss';
+
+const NewsListFilter: React.FC = () => {
   const handlers = useHandlers();
   const fields = useFields();
 
@@ -15,12 +17,14 @@ const NewsListCanvas: React.FC = () => {
   useEffect(() => handlers.fetch(), []);
 
   return (
-    <FormView>
-      <Form.Field field={fields.title} />
-      <Form.Field field={fields.publishedAt} />
-      <Form.Field field={fields.site} />
-      <Form.Field field={fields.locale} />
-      <Form.Field field={fields.isPublished} />
+    <FormView variant="news-list-filter">
+      <div className="form__fields">
+        <Form.Field field={fields.title} />
+        <Form.Field field={fields.publishedAt} />
+        <Form.Field field={fields.site} />
+        <Form.Field field={fields.locale} />
+        <Form.Field field={fields.isPublished} />
+      </div>
       <Form.Actions>
         <Button onClick={handlers.apply} variant="primary">
           Применить
@@ -33,4 +37,4 @@ const NewsListCanvas: React.FC = () => {
   );
 };
 
-export default withStore(NewsListCanvas);
+export default withStore(NewsListFilter);

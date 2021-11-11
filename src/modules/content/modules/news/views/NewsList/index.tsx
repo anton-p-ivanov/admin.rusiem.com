@@ -3,7 +3,7 @@ import React from 'react';
 import ListView, { withStore } from 'views/ListView';
 import withOffCanvas from 'wrappers/withOffCanvas';
 
-import { NewsListCanvas } from './components';
+import { NewsListFilter } from './components';
 import settings from './settings';
 
 import './styles.scss';
@@ -13,5 +13,5 @@ const NewsList: React.FC = () => (
 );
 
 export default withStore(
-  withOffCanvas(NewsList, NewsListCanvas, 'Параметры фильтрации'),
+  withOffCanvas(NewsList, NewsListFilter, 'Параметры фильтрации'),
 );

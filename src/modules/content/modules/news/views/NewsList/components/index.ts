@@ -1,10 +1,10 @@
-import NewsListCanvas from './NewsListCanvas';
 import NewsListContext from './NewsListContext';
+import NewsListFilter from './NewsListFilter';
 import NewsListRow from './NewsListRow';
 import NewsListToolbar from './NewsListToolbar';
 
 export {
-  NewsListCanvas,
+  NewsListFilter,
   NewsListContext,
   NewsListRow,
   NewsListToolbar,
