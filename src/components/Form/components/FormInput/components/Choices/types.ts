@@ -6,9 +6,11 @@ export type TChoice = {
   isDisabled?: boolean;
 };
 
+export type TChoices = TChoice[];
+
 export type TChoiceFieldAttributes = {
-  choices: TChoice[],
-  choicesCallback?: () => Promise<TChoice[]>;
+  choices: TChoices,
+  choicesCallback?: () => Promise<TChoices>;
   placeholder?: string,
   isMultiple?: boolean,
   isInline?: boolean,

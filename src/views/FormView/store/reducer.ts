@@ -21,6 +21,24 @@ const Reducer: TReducer = (state, action) => {
     case types.UPDATE_STATE:
       return { ...state, ...payload, timestamp: new Date().getTime() };
 
+    case types.FETCH_SENT:
+      return { ...state, ...INITIAL_STATE, status: 'FETCHING' };
+
+    case types.FETCH_SUCCEED:
+      return { ...state, status: 'FETCH_SUCCEED', ...payload };
+
+    case types.FETCH_FAILED:
+      return { ...state, status: 'FETCH_FAILED', ...payload };
+
+    case types.SUBMIT_SENT:
+      return { ...state, status: 'SUBMITTING', ...payload };
+
+    case types.SUBMIT_SUCCEED:
+      return { ...state, status: 'SUBMIT_SUCCEED', ...payload };
+
+    case types.SUBMIT_FAILED:
+      return { ...state, status: 'SUBMIT_FAILED', ...payload };
+
     default:
       return state;
   }

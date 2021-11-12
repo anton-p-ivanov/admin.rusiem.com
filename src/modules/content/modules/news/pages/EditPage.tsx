@@ -1,11 +1,22 @@
 import React from 'react';
 
-import FormView from '../views/FormView';
+import PageView from 'views/PageView';
+import WorkflowView from 'views/WorkflowView';
 
-const EditPage: React.FC = () => (
-  <>
-    <FormView />
-  </>
-);
+import NewsForm from '../views/NewsForm';
+
+const EditPage: React.FC = () => {
+  const title = 'Контент :: Пресс-центр :: Новости';
+
+  return (
+    <>
+      <PageView title={title}>
+        <h2>Изменение элемента</h2>
+        <NewsForm />
+        <WorkflowView />
+      </PageView>
+    </>
+  );
+};
 
 export default EditPage;

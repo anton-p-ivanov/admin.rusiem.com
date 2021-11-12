@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { TReducerState } from './store/types';
+import type { TReducerState } from './store/types';
+import type { TFormFields } from 'components/Form/types';
 
 export type TFormViewEndpoints = {
   submit: string;
@@ -17,5 +18,10 @@ export type TFormViewProps = {
 export type TFormViewReducer = {
   state: TReducerState;
   update: (state: TReducerState) => void;
+  request: (endpoint: string) => void;
   reset: () => void;
+};
+
+export type TFormViewContext = {
+  fields: TFormFields;
 };
