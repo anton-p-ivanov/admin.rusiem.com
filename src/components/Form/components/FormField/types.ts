@@ -2,11 +2,16 @@ import React from 'react';
 
 export type TFormFieldValue = string | string[] | boolean | number;
 export type TFormFieldType =
+  | 'checkbox'
   | 'choices'
   | 'date'
+  | 'datetime'
+  | 'file'
+  | 'number'
   | 'password'
   | 'select'
-  | 'text';
+  | 'text'
+  | 'textarea';
 
 export interface TFormField<T extends TFormFieldValue> {
   name: string;
@@ -17,6 +22,7 @@ export interface TFormField<T extends TFormFieldValue> {
   isDisabled?: boolean;
   value?: T;
   defaultValue?: T;
+  emptyValue?: T;
   errors?: string[];
   onChange?: (value: T) => void;
   ref?: React.RefObject<HTMLInputElement>;

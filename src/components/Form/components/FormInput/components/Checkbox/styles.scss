@@ -1,0 +1,51 @@
+@import "src/assets/variables";
+
+.form__input {
+  &.form__input--checkbox {
+    order: 0;
+    cursor: pointer;
+    appearance: none;
+    background-color: #fff;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: solid $input-border-width $input-border-color;
+    color-adjust: exact;
+    height: 16px;
+    vertical-align: top;
+    width: 16px;
+    //
+    //&[type="checkbox"]
+    //  //border-radius: 50%
+
+    &:checked {
+      border-color: $color-primary;
+      background-color: $color-primary;
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAyMCAyMCc+PHBhdGggZmlsbD0nbm9uZScgc3Ryb2tlPScjZmZmJyBzdHJva2UtbGluZWNhcD0ncm91bmQnIHN0cm9rZS1saW5lam9pbj0ncm91bmQnIHN0cm9rZS13aWR0aD0nMycgZD0nbTYgMTAgMyAzIDYtNicvPjwvc3ZnPg==);
+    }
+
+    &:focus {
+      outline: 0;
+    }
+  }
+}
+
+.form__field {
+  &.form__field--checkbox {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+
+    .form__hint {
+      order: 2;
+    }
+  }
+}
+
+.form__label {
+  &.form__label--checkbox {
+    order: 1;
+    margin-bottom: 0;
+    margin-left: .5rem;
+  }
+}

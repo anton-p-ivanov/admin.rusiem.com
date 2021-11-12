@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import classNames from 'classnames';
 
-import type { TChoicesProps, TChoiceFieldAttributes, TChoice } from './types';
+import type { TChoicesProps, TChoiceFieldAttributes, TChoices } from './types';
 import './styles.scss';
 
 const Choices: React.FC<TChoicesProps> = ({ field }) => {
@@ -22,7 +22,7 @@ const Choices: React.FC<TChoicesProps> = ({ field }) => {
 
   const { choicesCallback, isInline = false, isMultiple = false } = attrs;
 
-  const [choices, setChoices] = useState<TChoice[]>(attrs.choices);
+  const [choices, setChoices] = useState<TChoices>(attrs.choices || []);
 
   useEffect(() => {
     if (typeof choicesCallback === 'function') {

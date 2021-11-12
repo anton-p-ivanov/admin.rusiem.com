@@ -1,0 +1,18 @@
+@import "src/assets/variables";
+
+$textarea-sizes: (
+        small: 5rem,
+        medium: 10rem,
+        large: 20rem,
+);
+
+.form__input--textarea {
+  height: auto !important;
+}
+
+@each $name, $size in $textarea-sizes {
+  textarea.form__input--textarea-#{$name} {
+    height: $size !important;
+  }
+}
+
