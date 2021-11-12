@@ -1,0 +1,28 @@
+@import "src/assets/variables";
+
+.workflow-view {
+  display: flex;
+  font-size: $font-size-sm;
+  color: $color-gray-dark;
+  margin-top: 2rem;
+  border-top: solid 1px $color-gray-lightest;
+  padding-top: 1rem;
+
+  &__item {
+    display: flex;
+
+    & ~ & {
+      margin-left: 2rem;
+    }
+  }
+
+  &__icon {
+    color: $color-gray-medium;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+  }
+}
