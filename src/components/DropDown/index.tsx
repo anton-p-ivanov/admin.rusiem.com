@@ -4,8 +4,7 @@ import classNames from 'classnames';
 
 import useClickOutside from 'utils/useClickOutside';
 
-import DropDownDivider from './components/DropDownDivider';
-import DropDownLink from './components/DropDownLink';
+import * as Components from './components';
 
 import type { TDropDown } from './types';
 import './styles.scss';
@@ -31,7 +30,8 @@ const DropDown: TDropDown = (props) => {
   );
 };
 
-DropDown.Link = DropDownLink;
-DropDown.Divider = DropDownDivider;
+DropDown.Link = Components.DropDownLink;
+DropDown.Divider = Components.DropDownDivider;
+DropDown.Button = Components.DropDownButton;
 
 export default DropDown;

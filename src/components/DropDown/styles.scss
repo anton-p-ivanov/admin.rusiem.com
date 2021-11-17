@@ -83,7 +83,8 @@ $dropdown-border-width: 1px;
       outline: none;
     }
 
-    &--link {
+    &--link,
+    &--button {
       cursor: pointer;
 
       &:hover:not(:disabled) {

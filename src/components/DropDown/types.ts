@@ -10,4 +10,5 @@ export type TDropDownProps = {
 export type TDropDown = React.FC<TDropDownProps> & {
   Link: typeof Child.DropDownLink;
   Divider: typeof Child.DropDownDivider;
+  Button: typeof Child.DropDownButton;
 };
