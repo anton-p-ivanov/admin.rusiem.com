@@ -63,6 +63,12 @@
           "node_modules",
           "src"
         ]
+      },
+      "alias": {
+        "extensions": [".ts", ".tsx"],
+        "map": [
+          ["@news", "./src/modules/content/modules/news"]
+        ]
       }
     }
   }

@@ -15,11 +15,18 @@
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
     "moduleResolution": "node",
+    "sourceMap": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "paths": {
+      "components/*": ["components/*"],
+      "views/*": ["views/*"],
+      "wrappers/*": ["wrappers/*"],
+      "@news/*": ["modules/content/modules/news/*"]
+    }
   },
   "include": [
     "src/**/*"

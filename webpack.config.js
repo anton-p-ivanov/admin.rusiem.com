@@ -12,6 +12,7 @@ module.exports = (env, options) => {
   return ({
     mode,
     entry: "./src/index.tsx",
+    devtool: 'inline-source-map',
     output: {
       filename: "[name].[fullhash].js",
       path: path.resolve(__dirname, "public"),
@@ -28,6 +29,9 @@ module.exports = (env, options) => {
     resolve: {
       modules: [__dirname, "src", "node_modules"],
       extensions: ["*", ".js", ".jsx", ".tsx", ".ts"],
+      alias: {
+        '@news': path.resolve(__dirname, "src/modules/content/modules/news")
+      }
     },
     module: {
       rules: [
