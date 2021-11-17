@@ -1,10 +1,14 @@
 import React from 'react';
 
-type TCollectionViewContext = {
-  property: string;
-  toggleModal?: (value?: boolean) => void;
-};
+import FormContext from './components/ElementsForm/context';
 
-export default React.createContext<TCollectionViewContext>({
+import type { TCollectionViewContext } from './types';
+
+const ViewContext = React.createContext<TCollectionViewContext>({
   property: 'none',
 });
+
+export {
+  ViewContext,
+  FormContext,
+};

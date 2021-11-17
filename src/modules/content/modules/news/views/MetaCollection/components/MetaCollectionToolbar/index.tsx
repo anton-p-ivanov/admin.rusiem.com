@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 
 import { Button, DataToolbar } from 'components';
-import Context from 'views/CollectionView/context';
+import { ViewContext } from 'views/CollectionView/context';
 
 const MetaListToolbar: React.FC = () => {
-  const { toggleModal } = useContext(Context);
+  const { toggleModal } = useContext(ViewContext);
   const onButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     if (typeof toggleModal === 'function') {

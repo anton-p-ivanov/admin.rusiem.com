@@ -1,24 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import ElementsFormInner from '../ElementsFormInner';
-import Context from './context';
+import useFields from './hooks/useFields';
+import useHandlers from './hooks/useHandlers';
 
-import type { TElementsFormState } from './types';
-import type { TFormFields } from 'components/Form/types';
-import type { TElementsForm } from 'views/CollectionView/types';
+import type { TElementsFormProps } from './types';
 
-type TElementsFormProps = {
-  component: React.FC<TElementsForm>;
-  fields: TFormFields;
-};
+const ElementsForm: React.FC<TElementsFormProps> = (props) => {
+  const { component: FormComponent, fields = {} } = props;
 
-const ElementsForm: React.FC<TElementsFormProps> = ({ component, fields }) => {
-  const [state, update] = useState<TElementsFormState>({});
+  const propHandlers = useHandlers();
+  const propFields = useFields(fields);
 
   return (
-    <Context.Provider value={{ state, update }}>
-      <ElementsFormInner component={component} fields={fields} />
-    </Context.Provider>
+    <>
+      <FormComponent handlers={propHandlers} fields={propFields} />
+    </>
   );
 };
 

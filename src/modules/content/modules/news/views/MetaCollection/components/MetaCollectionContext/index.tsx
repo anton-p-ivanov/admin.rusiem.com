@@ -4,25 +4,30 @@ import { DropDown, Icon } from 'components';
 
 import { TMetaListContextProps } from './types';
 
-const MetaListContext: React.FC<TMetaListContextProps> = ({ data }) => {
+const MetaListContext: React.FC<TMetaListContextProps> = ({ data, handlers }) => {
   const toggle = <Icon name="more-vertical" title="Выберите действие" />;
 
-  const removeHandler = (event: React.MouseEvent<HTMLAnchorElement>) => {
+  const deleteHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+    handlers.delete(data.uuid);
+  };
+
+  const updateHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    handlers.update(data.uuid);
+  };
+
+  const copyHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    handlers.copy(data.uuid);
   };
 
   return (
     <DropDown toggle={toggle}>
-      <DropDown.Link icon="edit" route={`/content/meta/${data.uuid}/edit`}>Изменить</DropDown.Link>
-      <DropDown.Link icon="copy" route={`/content/meta/${data.uuid}/copy`}>Копировать</DropDown.Link>
+      <DropDown.Button icon="edit" onClick={updateHandler}>Изменить</DropDown.Button>
+      <DropDown.Button icon="copy" onClick={copyHandler}>Копировать</DropDown.Button>
       <DropDown.Divider />
-      <DropDown.Link
-        icon="trash-2"
-        route={`/content/meta/${data.uuid}/remove`}
-        onClick={removeHandler}
-      >
-        Удалить
-      </DropDown.Link>
+      <DropDown.Button icon="trash-2" onClick={deleteHandler}>Удалить</DropDown.Button>
     </DropDown>
   );
 };

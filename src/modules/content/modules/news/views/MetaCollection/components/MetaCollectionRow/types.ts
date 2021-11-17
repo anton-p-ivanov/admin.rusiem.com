@@ -1,5 +1,3 @@
-import { TDataMeta } from '@news/config/types';
+import type { TElementsListRow } from 'views/CollectionView/types';
 
-export type TMetaListRowProps = {
-  data: TDataMeta;
-};
+export type TMetaListRowProps = TElementsListRow;
