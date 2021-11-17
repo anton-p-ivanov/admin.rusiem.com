@@ -1,6 +1,7 @@
 // import Boolean from './Boolean';
 import Checkbox from './Checkbox';
 import Choices from './Choices';
+import Collection from './Collection';
 import Date from './Date';
 import DateTime from './DateTime';
 import File from './File';
@@ -22,6 +23,7 @@ export {
   // Boolean,
   Checkbox,
   Choices,
+  Collection,
   Date,
   DateTime,
   File,

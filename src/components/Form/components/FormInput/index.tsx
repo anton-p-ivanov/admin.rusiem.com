@@ -4,6 +4,7 @@ import * as Input from './components';
 import { TChoiceField } from './components/Choices/types';
 
 import type { TFormField } from '../FormField';
+import type { TCollectionField } from './components/Collection/types';
 import type { TNumberField } from './components/Number/types';
 import type { TSelectField } from './components/Select/types';
 import type { TTextField } from './components/Text/types';
@@ -15,6 +16,7 @@ import './styles.scss';
 type TFormInput = React.FC<TFormInputProps> & {
   Checkbox: typeof Input.Checkbox;
   Choices: typeof Input.Choices;
+  Collection: typeof Input.Collection;
   Date: typeof Input.Date;
   DateTime: typeof Input.DateTime;
   File: typeof Input.File;
@@ -33,6 +35,8 @@ const FormInput: TFormInput = (props) => {
       return <Input.Checkbox field={field as TFormField<boolean>} />;
     case 'choices':
       return <Input.Choices field={field as TChoiceField} />;
+    case 'collection':
+      return <Input.Collection field={field as TCollectionField} />;
     case 'date':
       return <Input.Date field={field as TTextField} ref={field.ref} />;
     case 'datetime':
@@ -57,6 +61,7 @@ const FormInput: TFormInput = (props) => {
 // // FormInput.Boolean = Inputs.Boolean;
 FormInput.Checkbox = Input.Checkbox;
 FormInput.Choices = Input.Choices;
+FormInput.Collection = Input.Collection;
 FormInput.Date = Input.Date;
 FormInput.File = Input.File;
 FormInput.DateTime = Input.DateTime;
