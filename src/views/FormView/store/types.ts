@@ -1,9 +1,15 @@
 import { Reducer } from 'react';
 
-import { TDataWorkflow } from 'config/types';
-
 export type TReducerData = {
-  [key: string]: string | string[] | boolean | number | TDataWorkflow;
+  // [key: string]:
+  //   | string
+  //   | string[]
+  //   | boolean
+  //   | number
+  //   | Record<string, unknown>
+  //   | Record<string, unknown>[]
+  //   | TDataWorkflow;
+  [key: string]: unknown;
 };
 
 export type TReducerErrors = {

@@ -5,16 +5,16 @@ import classNames from 'classnames';
 import { Form } from 'components';
 
 import useFields from './hooks/useFields';
+import useHandlers from './hooks/useHandlers';
 import withStore, { useStore } from './store';
 
 import type { TFormViewProps } from './types';
 
 const FormView: React.FC<TFormViewProps> = (props) => {
-  const {
-    variant, endpoints, onSubmit, children,
-  } = props;
+  const { variant, endpoints, children } = props;
 
   const store = useStore();
+  const handlers = useHandlers(props);
 
   useEffect(() => {
     if (endpoints && endpoints.request) {
@@ -25,16 +25,11 @@ const FormView: React.FC<TFormViewProps> = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const onSubmitHandler = (event: React.FormEvent<HTMLFormElement>) => onSubmit && onSubmit(event);
-
-  const className = classNames([
-    'form-view',
-    variant && `form-view--${variant}`,
-  ]);
+  const className = classNames('form-view', variant && `form-view--${variant}`);
 
   return (
     <div className={className}>
-      <Form onSubmit={onSubmitHandler}>
+      <Form onSubmit={handlers.submit}>
         {children}
       </Form>
     </div>

@@ -63,3 +63,10 @@ h2 {
 h3 {
   font-size: $font-size-base;
 }
+
+.img {
+  &--fluid {
+    max-width: 100%;
+    height: auto;
+  }
+}

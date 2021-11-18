@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
 import { AuthLayout, MainLayout } from 'layouts';
 
@@ -8,7 +9,11 @@ import './styles.scss';
 const AppView: React.FC = () => {
   const { token, setToken } = useToken();
 
-  return <>{token ? <MainLayout /> : <AuthLayout setToken={setToken} />}</>;
+  return (
+    <BrowserRouter>
+      {token ? <MainLayout /> : <AuthLayout setToken={setToken} />}
+    </BrowserRouter>
+  );
 };
 
 export default AppView;

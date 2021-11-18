@@ -8,4 +8,5 @@ export default React.createContext<TFormViewReducer>({
   update: () => null,
   request: () => null,
   reset: () => null,
+  submit: () => new Promise(() => false),
 });

@@ -30,14 +30,17 @@ const ListView: React.FC<TListViewProps> = (props) => {
     update({ ...state, pagination: { ...pagination, page } });
   };
 
-  const Toolbar: React.FC = templates.toolbar;
+  const Toolbar: React.FC | undefined = templates.toolbar;
   const Row: React.FC<TListViewRow> = templates.row;
 
   return (
     <>
-      <Toolbar>
-        <ListViewSort columns={columns} />
-      </Toolbar>
+      {Toolbar
+      && (
+        <Toolbar>
+          <ListViewSort columns={columns} />
+        </Toolbar>
+      )}
       <DataTable columns={columns}>
         {state.data.length === 0 && <DataTable.Empty span={columns.length} />}
         {state.data.map((item) => (

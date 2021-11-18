@@ -18,7 +18,7 @@ export type TListViewRow = {
 export type TListViewColumn = TDataColumn;
 export type TListViewTemplates = {
   row: React.FC<TListViewRow>;
-  toolbar: React.FC;
+  toolbar?: React.FC;
 };
 
 export type TListViewReducer = {

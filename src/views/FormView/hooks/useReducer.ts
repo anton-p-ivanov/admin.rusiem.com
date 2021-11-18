@@ -6,7 +6,7 @@ import Reducer, { handlers, INITIAL_STATE } from '../store/reducer';
 
 import type { TReducerData, TReducerErrors, TReducerState } from '../store/types';
 import type { TFormViewReducer } from '../types';
-import type { AxiosResponse } from 'axios';
+import type { AxiosError, AxiosResponse, Method } from 'axios';
 
 const useReducer = (initialState?: TReducerState): TFormViewReducer => {
   const [state, dispatch] = React.useReducer(Reducer, initialState || INITIAL_STATE);
@@ -37,8 +37,35 @@ const useReducer = (initialState?: TReducerState): TFormViewReducer => {
       });
   };
 
+  const submit = (endpoint: string, data: TReducerData): Promise<TReducerData> => {
+    const [method, url] = endpoint.split(':', 2);
+
+    if (!['PUT', 'POST', 'PATCH'].includes(method)) {
+      throw Error('Form can be submitted only via POST, PUT or PATCH methods');
+    }
+
+    return new Promise((resolve, reject) => {
+      dispatch(handlers.submitSent(data));
+
+      API
+        .request<TReducerData>({ method: method as Method, url, data })
+        .then((response: AxiosResponse<TReducerData>) => {
+          dispatch(handlers.submitSucceed(response.data));
+          resolve(response.data);
+        })
+        .catch((error: AxiosError<TReducerErrors>) => {
+          const errors = (error.response?.status === 422)
+            ? (error.response?.data || {})
+            : { _error: ['An error occurred while submitting data'] };
+
+          dispatch(handlers.submitFailed(errors));
+          reject(error);
+        });
+    });
+  };
+
   return {
-    state, update, request, reset,
+    state, update, request, reset, submit,
   };
 };
 
