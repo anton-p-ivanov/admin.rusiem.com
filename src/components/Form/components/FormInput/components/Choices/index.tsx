@@ -42,7 +42,7 @@ const Choices: React.FC<TChoicesProps> = ({ field }) => {
         : [...arrayValue, target.value];
 
       if (typeof onChange === 'function') {
-        onChange(newValue as string[]);
+        onChange(newValue.filter((v) => v !== '') as string[]);
       }
 
       return newValue.length;

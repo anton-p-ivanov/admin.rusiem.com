@@ -12,7 +12,7 @@ const Select: React.FC<TSelectProps> = ({ field }) => {
   };
 
   const {
-    name, value, isDisabled = false, onChange, attrs = DEFAULT_ATTRS,
+    name, value = '', isDisabled = false, onChange, attrs = DEFAULT_ATTRS,
   } = field;
 
   const {
@@ -44,7 +44,7 @@ const Select: React.FC<TSelectProps> = ({ field }) => {
     <select
       className="form__input form__input--select"
       name={name}
-      value={value}
+      value={(isMultiple && !Array.isArray(value)) ? [value] : value}
       disabled={isDisabled}
       multiple={isMultiple}
       onChange={onChangeHandler}
