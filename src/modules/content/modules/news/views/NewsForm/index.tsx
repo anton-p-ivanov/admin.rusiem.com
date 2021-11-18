@@ -1,7 +1,9 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
+import { Button, Form } from 'components';
 import FormView, { useFields, withStore } from 'views/FormView';
+import WorkflowView from 'views/WorkflowView';
 
 import { LeftPane, RightPane } from './components';
 import _fields from './fields';
@@ -11,12 +13,12 @@ import './styles.scss';
 
 const NewsForm: React.FC<TNewsFormProps> = (props) => {
   const { isNewElement = false } = props;
-  const { uuid = 'none' } = useParams();
+  const { uuid } = useParams();
   const fields = useFields(_fields);
 
   const endpoints = {
-    request: `GET:/content/news/${uuid}`,
-    submit: isNewElement ? 'POST:/content/news' : `PUT:/content/news/${uuid}`,
+    request: uuid && `GET:/content/news/${uuid}`,
+    submit: isNewElement ? 'POST:/content/news' : (uuid && `PUT:/content/news/${uuid}`),
     success: 'GET:/content/news',
   };
 
@@ -26,6 +28,15 @@ const NewsForm: React.FC<TNewsFormProps> = (props) => {
         <LeftPane fields={fields} />
         <RightPane fields={fields} />
       </div>
+      <Form.Actions>
+        <Button isSubmit variant="primary">
+          Сохранить
+        </Button>
+        <Link to="/content/news" className="btn btn--default">
+          Отменить
+        </Link>
+      </Form.Actions>
+      {!isNewElement && <WorkflowView />}
     </FormView>
   );
 };

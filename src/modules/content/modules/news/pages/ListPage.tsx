@@ -1,8 +1,7 @@
 import React from 'react';
 
+import NewsList from '@news/views/NewsList';
 import PageView from 'views/PageView';
-
-import NewsList from '../views/NewsList';
 
 const ListPage: React.FC = () => {
   const title = 'Контент :: Пресс-центр :: Новости';

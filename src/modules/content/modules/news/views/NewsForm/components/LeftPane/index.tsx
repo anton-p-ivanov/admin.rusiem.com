@@ -1,26 +1,18 @@
 import React from 'react';
 
-import { Form } from 'components';
+import { Tabs } from 'components';
+
+import Context from './context';
+import tabs from './tabs';
 
 import type { TLeftPaneProps } from './types';
 
 const LeftPane: React.FC<TLeftPaneProps> = ({ fields }) => (
-  <div className="grid-view__left-pane">
-    <div className="grid-view__columns">
-      <Form.Field field={fields.publishedAt} />
+  <Context.Provider value={{ fields }}>
+    <div className="grid-view__left-pane">
+      <Tabs items={tabs} />
     </div>
-    <Form.Field field={fields.title} />
-    <Form.Field field={fields.slug} />
-    <Form.Field field={fields.description} />
-    <Form.Field field={fields.content} />
-    <div className="grid-view__columns">
-      <Form.Field field={fields.imageSmall} />
-      <Form.Field field={fields.imageLarge} />
-    </div>
-    <div className="grid-view__columns">
-      <Form.Field field={fields.sort} />
-    </div>
-  </div>
+  </Context.Provider>
 );
 
 export default LeftPane;

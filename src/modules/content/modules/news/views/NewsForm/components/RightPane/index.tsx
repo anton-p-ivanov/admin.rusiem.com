@@ -14,6 +14,9 @@ const RightPane: React.FC<TRightPaneProps> = ({ fields }) => (
       <Form.Field field={fields.sites} />
       <Form.Field field={fields.locale} />
     </Form.Group>
+    <Form.Group>
+      <Form.Field field={fields.tags} />
+    </Form.Group>
   </div>
 );
 

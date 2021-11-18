@@ -13,3 +13,10 @@ export type TDataNews = {
   publishedAt: string;
   workflow: TDataWorkflow;
 };
+
+export type TDataMeta = {
+  uuid: string;
+  property: string;
+  name: string;
+  content: string;
+};

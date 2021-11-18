@@ -1,6 +1,9 @@
 import API from 'utils/api';
 
+import metaSettings from '../MetaCollection';
+
 import type { TChoices } from 'components/Form/components/FormInput/components/Choices/types';
+import type { TSelectOptions } from 'components/Form/components/FormInput/components/Select/types';
 import type { TFormField, TFormFields } from 'components/Form/types';
 
 const title: TFormField<string> = {
@@ -40,10 +43,12 @@ const sort: TFormField<number> = {
   hint: 'Значение определяющее положение элемента в списке элементов.',
 };
 
+const date = new Date();
+
 const publishedAt: TFormField<string> = {
   type: 'datetime',
   name: 'publishedAt',
-  defaultValue: new Date().toISOString(),
+  defaultValue: new Date(date.getTime() - (date.getTimezoneOffset() * 60 * 1000)).toISOString(),
   label: 'Дата публикации',
   hint: 'Дата, отображаемая пользователям на сайте.',
 };
@@ -100,6 +105,24 @@ const locale: TFormField<string> = {
   },
 };
 
+const tags: TFormField<string[]> = {
+  type: 'select',
+  name: 'tags',
+  label: 'Привязка к тегам',
+  hint: 'Выберите один или несколько тегов, которые будут присвоены новости.',
+  attrs: {
+    isMultiple: true,
+    size: 10,
+    optionsCallback: (): Promise<TSelectOptions> => API.lookup<TSelectOptions>('/catalog/tags?context=news'),
+  },
+};
+
+const meta: TFormField<Record<string, unknown>[]> = {
+  type: 'collection',
+  name: 'meta',
+  attrs: metaSettings,
+};
+
 const fields: TFormFields = {
   title,
   slug,
@@ -113,6 +136,8 @@ const fields: TFormFields = {
   isPinned,
   sites,
   locale,
+  tags,
+  meta,
 };
 
 export default fields;
