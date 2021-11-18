@@ -8,7 +8,7 @@ import type { TDataToolbar } from './types';
 import './styles.scss';
 
 const DataToolbar: TDataToolbar = (props) => {
-  const { variant = 'default', children } = props;
+  const { variant = 'default', component: Toolbar, children } = props;
 
   const className = classNames([
     'data-toolbar',
@@ -17,7 +17,7 @@ const DataToolbar: TDataToolbar = (props) => {
 
   return (
     <div className={className}>
-      {children}
+      {Toolbar ? <Toolbar /> : children}
     </div>
   );
 };
