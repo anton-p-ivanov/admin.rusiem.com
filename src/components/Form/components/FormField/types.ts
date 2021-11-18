@@ -1,9 +1,10 @@
 import React from 'react';
 
-export type TFormFieldValue = string | string[] | boolean | number;
+export type TFormFieldValue = string | string[] | boolean | number | Record<string, unknown>[];
 export type TFormFieldType =
   | 'checkbox'
   | 'choices'
+  | 'collection'
   | 'date'
   | 'datetime'
   | 'file'
@@ -33,7 +34,8 @@ export type TFormFieldsUnion =
   | TFormField<string>
   | TFormField<string[]>
   | TFormField<boolean>
-  | TFormField<number>;
+  | TFormField<number>
+  | TFormField<Record<string, unknown>[]>;
 
 export type TFormFields = {
   [key: string]: TFormFieldsUnion
