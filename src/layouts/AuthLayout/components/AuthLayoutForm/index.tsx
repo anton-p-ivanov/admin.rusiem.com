@@ -2,15 +2,15 @@ import React from 'react';
 
 import logo from 'assets/images/rusiem_black.svg';
 import { Button, Form } from 'components';
-import FormView, { withStore } from 'views/FormView';
+import FormView, { withStore, useFields } from 'views/FormView';
 
-import { useFields, useHandlers } from './hooks';
-
+import fields from './fields';
+import { useHandlers } from './hooks';
 import './styles.scss';
 
 const AuthLayoutForm: React.FC = () => {
   const handlers = useHandlers();
-  const fields = useFields();
+  const { username, password } = useFields(fields);
 
   return (
     <FormView variant="auth-form" onSubmit={handlers.submit}>
@@ -20,8 +20,8 @@ const AuthLayoutForm: React.FC = () => {
       <div className="form__title">
         Система управления сайтами
       </div>
-      <Form.Field field={fields.username} />
-      <Form.Field field={fields.password} />
+      <Form.Field field={username} />
+      <Form.Field field={password} />
       <Form.Actions>
         <Button isSubmit variant="primary">
           Войти в систему
