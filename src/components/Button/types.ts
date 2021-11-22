@@ -1,6 +1,6 @@
 import React from 'react';
 
-type TButtonVariant = 'default' | 'primary' | 'success' | 'danger' | 'warning';
+type TButtonVariant = 'default' | 'primary' | 'success' | 'danger' | 'warning' | 'link';
 type TButtonSize = 'default' | 'small' | 'large';
 
 export interface TButtonProps {
