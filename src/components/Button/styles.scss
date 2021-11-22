@@ -7,6 +7,7 @@ $button-colors: (
         danger: (background-color: $color-danger, color: $color-white),
         primary: (background-color: $color-primary, color: $color-white),
         default: (background-color: $color-white, color: $color-text-body, border-color: $color-gray-light),
+        link: (background-color: transparent, color: $color-text-body)
 );
 
 $button-size-map: (
@@ -80,6 +81,12 @@ $button-size-map: (
       background-color: $color-white;
       border-color: $color-white;
       color: $color-gray-light;
+    }
+  }
+
+  &--link {
+    &:hover {
+      color: $color-primary;
     }
   }
 

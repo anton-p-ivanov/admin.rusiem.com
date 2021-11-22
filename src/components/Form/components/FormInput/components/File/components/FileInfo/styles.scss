@@ -1,0 +1,14 @@
+@import "src/assets/variables";
+
+.file-info {
+  &__image {
+    margin-top: .5rem;
+    background-color: $color-gray-lightest;
+  }
+
+  &__text {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

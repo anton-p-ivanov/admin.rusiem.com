@@ -1,22 +1,22 @@
 @import "src/assets/variables";
 
+.file-select-button {
+  display: flex;
+
+  button {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0;
+  }
+
+  input {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
 .form__input {
   &.form__input--file {
-    appearance: none;
-    cursor: pointer;
-    overflow: hidden;
-
-    &::file-selector-button {
-      padding: $input-padding-x $input-padding-y;
-      margin: (-$input-padding-x) $input-padding-x 0 (-$input-padding-y);
-      background-color: $color-gray-light;
-      color: $color-text-body;
-      pointer-events: none;
-      border: 0;
-    }
-
-    &:hover::file-selector-button {
-      background-color: darken($color-gray-light, 10%);
-    }
+    display: none;
   }
 }
