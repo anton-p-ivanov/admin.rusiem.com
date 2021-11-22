@@ -1,4 +1,4 @@
 export type TDataFormatProps = {
-  format: 'date' | 'datetime';
+  format: 'date' | 'datetime' | 'filesize';
   value: string | number;
 };

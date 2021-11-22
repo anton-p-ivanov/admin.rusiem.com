@@ -1,5 +1,7 @@
 import React from 'react';
 
+import fileSize from 'filesize';
+
 import { TDataFormatProps } from './types';
 
 const DataFormat: React.FC<TDataFormatProps> = (props) => {
@@ -16,6 +18,8 @@ const DataFormat: React.FC<TDataFormatProps> = (props) => {
           }).format(new Date(value))}
         </>
       );
+    case 'filesize':
+      return <>{fileSize(parseInt(value.toString(), 10))}</>;
     default:
       return <>{value}</>;
   }
