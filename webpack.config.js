@@ -6,7 +6,7 @@ module.exports = {
   entry: "./src/index.tsx",
   output: {
     filename: "[name].[fullhash].js",
-    path: path.resolve(__dirname, "public"),
+    path: path.resolve(__dirname, "public/dist"),
     publicPath: "/"
   },
   plugins: [
