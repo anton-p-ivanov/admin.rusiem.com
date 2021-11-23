@@ -26,5 +26,4 @@ export type TFileContext = {
   ref?: React.RefObject<HTMLInputElement>;
 };
 
-export type TGetImageProps = (file: File) => Promise<TFileImage>;
-export type TUploadFileProps = (file: File) => Promise<TFileInfo>;
+export type TFileField = TFormField<TFileInfo>;

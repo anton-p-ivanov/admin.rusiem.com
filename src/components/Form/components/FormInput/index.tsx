@@ -5,6 +5,7 @@ import { TChoiceField } from './components/Choices/types';
 
 import type { TFormField } from '../FormField';
 import type { TCollectionField } from './components/Collection/types';
+import type { TFileField } from './components/File/types';
 import type { TNumberField } from './components/Number/types';
 import type { TSelectField } from './components/Select/types';
 import type { TTextField } from './components/Text/types';
@@ -42,7 +43,7 @@ const FormInput: TFormInput = (props) => {
     case 'datetime':
       return <Input.DateTime field={field as TTextField} ref={field.ref} />;
     case 'file':
-      return <Input.File field={field as TTextField} ref={field.ref} />;
+      return <Input.File field={field as TFileField} />;
     case 'number':
       return <Input.Number field={field as TNumberField} ref={field.ref} />;
     case 'password':

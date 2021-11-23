@@ -5,13 +5,13 @@ import DataFormat from 'components/DataFormat';
 import Icon from 'components/Icon';
 
 import Context from '../../context';
-import useHandlers from '../../hooks/useHandlers';
+import { useHandlers } from '../../hooks';
 
 import './styles.scss';
 
 const FileInfo: React.FC = () => {
   const { fileInfo } = useContext(Context);
-  const handlers = useHandlers(fileInfo);
+  const handlers = useHandlers();
 
   return (
     <div className="file-info">
@@ -27,11 +27,11 @@ const FileInfo: React.FC = () => {
             </div>
           )}
         </div>
-        <div>
+        <div className="file-info__buttons">
           {fileInfo.uuid && (
             <>
               <Button size="small" variant="link" onClick={handlers.downloadFile}>
-                <Icon name="download" title="Удалить файл" />
+                <Icon name="download" title="Скачать файл" />
               </Button>
               <Button size="small" variant="link" onClick={handlers.deleteFile}>
                 <Icon name="trash-2" title="Удалить файл" />

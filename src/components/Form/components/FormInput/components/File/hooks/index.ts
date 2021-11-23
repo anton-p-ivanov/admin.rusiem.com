@@ -1,3 +1,7 @@
 import useHandlers from './useHandlers';
+import useUtils from './useUtils';
 
-export default useHandlers;
+export {
+  useHandlers,
+  useUtils,
+};

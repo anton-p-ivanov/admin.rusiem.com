@@ -1,14 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 
 import Context, { FILE_INFO_INITIAL_STATE } from '../../context';
-import useHandlers from '../../hooks/useHandlers';
+import { useUtils } from '../../hooks';
 
 import type { TFileInput } from './types';
 
 const FileInput: React.FC<TFileInput> = ({ field }) => {
   const [selectedFile, setSelectedFile] = useState<File>();
   const { fileInfo, setFileInfo, ref } = useContext(Context);
-  const handlers = useHandlers(fileInfo);
+  const utils = useUtils();
 
   const onChangeHandler = ({ target }: React.ChangeEvent<HTMLInputElement>) => (
     target.files && setSelectedFile(target.files[0])
@@ -16,8 +16,15 @@ const FileInput: React.FC<TFileInput> = ({ field }) => {
 
   useEffect(() => {
     if (selectedFile) {
-      handlers.getImageProps(selectedFile);
-      handlers.uploadFile(selectedFile, field);
+      (async () => {
+        setFileInfo({
+          name: selectedFile.name,
+          type: selectedFile.type,
+          size: selectedFile.size,
+          image: await utils.getImageProps(selectedFile),
+        });
+      })();
+      utils.uploadFile(selectedFile, field);
     }
 
     return () => {
@@ -29,11 +36,11 @@ const FileInput: React.FC<TFileInput> = ({ field }) => {
   useEffect(() => {
     if (field.value) {
       if (field.value.uuid) {
-        (async () => {
-          const src = await handlers.requestImagePreview(field);
+        (async (uuid: string) => {
+          const src = await utils.requestImagePreview(uuid);
           const image = { ...fileInfo.image, ...field.value?.image, src };
           setFileInfo({ ...fileInfo, ...field.value, image });
-        })();
+        })(field.value.uuid);
       } else {
         setFileInfo({ ...fileInfo, ...field.value });
       }

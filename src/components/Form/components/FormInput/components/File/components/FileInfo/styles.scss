@@ -11,4 +11,9 @@
     align-items: center;
     justify-content: space-between;
   }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+  }
 }
