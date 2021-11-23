@@ -1,7 +1,5 @@
 import API from 'utils/api';
 
-import metaSettings from '../MetaCollection';
-
 import type { TChoices } from 'components/Form/components/FormInput/components/Choices/types';
 import type { TSelectOptions } from 'components/Form/components/FormInput/components/Select/types';
 import type { TFormField, TFormFields } from 'components/Form/types';
@@ -117,12 +115,6 @@ const tags: TFormField<string[]> = {
   },
 };
 
-const meta: TFormField<Record<string, unknown>[]> = {
-  type: 'collection',
-  name: 'meta',
-  attrs: metaSettings,
-};
-
 const fields: TFormFields = {
   title,
   slug,
@@ -137,7 +129,6 @@ const fields: TFormFields = {
   sites,
   locale,
   tags,
-  meta,
 };
 
 export default fields;

@@ -45,6 +45,12 @@
           "caseInsensitive": true
         }
       }
+    ],
+    "@typescript-eslint/no-floating-promises": [
+      "error",
+      {
+        "ignoreIIFE": true
+      }
     ]
   },
   "settings": {
