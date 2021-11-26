@@ -1,7 +1,4 @@
-import { useEffect } from 'react';
-
 import { useStore } from '../store';
-import { TReducerData } from '../store/types';
 
 import type { TFormFields } from 'components/Form/types';
 
@@ -20,18 +17,6 @@ const useFields = (fields: TFormFields): TFormFields => {
 
     return [key, { ...field, ...extend }];
   });
-
-  useEffect(() => {
-    const defaults = Object.entries(fields)
-      .filter(([, field]) => typeof field.defaultValue !== 'undefined')
-      .map(([key, field]) => [key, field.defaultValue]);
-
-    const data = { ...state.data, ...(Object.fromEntries(defaults) as TReducerData) };
-    update({ ...state, data });
-
-    return () => update({ ...state });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     Object.fromEntries(mappedFields) as TFormFields
