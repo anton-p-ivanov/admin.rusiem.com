@@ -4,7 +4,7 @@ import ArticlesList from '@articles/views/ArticlesList';
 import PageView from 'views/PageView';
 
 const ListPage: React.FC = () => {
-  const title = 'Контент :: Пресс-центр :: Новости';
+  const title = 'Контент :: Пресс-центр :: Публикации';
 
   return (
     <PageView title={title}>

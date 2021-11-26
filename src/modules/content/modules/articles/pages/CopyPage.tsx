@@ -4,7 +4,7 @@ import ArticlesForm from '@articles/views/ArticlesForm';
 import PageView from 'views/PageView';
 
 const CopyPage: React.FC = () => {
-  const title = 'Контент :: Пресс-центр :: Новости';
+  const title = 'Контент :: Пресс-центр :: Публикации';
 
   return (
     <PageView title={title}>
