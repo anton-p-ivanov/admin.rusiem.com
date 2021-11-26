@@ -22,7 +22,7 @@ const NavLink: React.FC<TNavLinkProps> = ({ item }) => {
         </div>
       )}
       {item.route ? (
-        <Link to={item.route} className={linkClassName} end>
+        <Link to={item.route} className={linkClassName}>
           {item.title}
         </Link>
       ) : (

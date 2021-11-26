@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { v4 } from 'uuid';
@@ -11,8 +11,8 @@ import type { TNavGroupProps } from './types';
 import './styles.scss';
 
 const NavGroup: React.FC<TNavGroupProps> = ({ item }) => {
-  const ref = React.useRef<HTMLDivElement>(null);
-  const [height, setHeight] = React.useState<number>(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState<number>(0);
   const { pathname } = useLocation();
 
   const getHeight = () => (
@@ -24,9 +24,9 @@ const NavGroup: React.FC<TNavGroupProps> = ({ item }) => {
     setHeight(height ? 0 : getHeight());
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     const items = item.items || [];
-    const collapsed = typeof (items.find((i) => i.route === pathname)) === 'undefined';
+    const collapsed = typeof (items.find((i) => i.route && pathname.startsWith(i.route))) === 'undefined';
     setHeight(collapsed ? 0 : getHeight());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

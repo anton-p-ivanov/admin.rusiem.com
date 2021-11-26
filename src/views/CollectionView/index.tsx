@@ -28,9 +28,11 @@ const CollectionView: React.FC<TCollectionViewProps> = (props) => {
     <ViewContext.Provider value={{ toggleModal, property }}>
       <FormContext.Provider value={{ state: formState, update: formStateUpdate }}>
         <ElementsList data={data} columns={settings.columns} templates={settings.templates} />
-        <Modal isVisible={isVisible} title="Test" ref={ref}>
-          <ElementsForm component={settings.form} fields={settings.fields} />
-        </Modal>
+        {isVisible && (
+          <Modal title="Test" ref={ref}>
+            <ElementsForm component={settings.form} fields={settings.fields} />
+          </Modal>
+        )}
       </FormContext.Provider>
     </ViewContext.Provider>
   );
