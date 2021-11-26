@@ -10,7 +10,7 @@ const AppView: React.FC = () => {
   const { token, setToken } = useToken();
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.BASE_URL}>
       {token ? <MainLayout /> : <AuthLayout setToken={setToken} />}
     </BrowserRouter>
   );
