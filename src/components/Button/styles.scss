@@ -69,9 +69,9 @@ $button-size-map: (
       cursor: not-allowed;
 
       &, &:hover, &:focus, &:active {
-        background-color: $color-gray-lightest;
-        border-color: $color-gray-lightest;
-        color: $color-gray-light;
+        background-color: $color-gray-light;
+        border-color: $color-gray-light;
+        color: $color-gray-medium;
       }
     }
   }
