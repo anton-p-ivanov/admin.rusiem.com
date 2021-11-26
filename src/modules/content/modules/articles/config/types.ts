@@ -1,7 +1,7 @@
 import { TDataWorkflow } from 'config/types';
 
 export type TDataArticle = {
-  uuid: string;
+  uuid?: string;
   title: string;
   description: string;
   content: string;
@@ -11,7 +11,8 @@ export type TDataArticle = {
   isPublished: boolean;
   isPinned: boolean;
   publishedAt: string;
-  workflow: TDataWorkflow;
+  workflow?: TDataWorkflow;
+  meta: TDataMeta[];
 };
 
 export type TDataMeta = {
