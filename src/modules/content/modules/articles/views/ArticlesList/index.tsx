@@ -9,7 +9,7 @@ import settings from './settings';
 import './styles.scss';
 
 const ArticlesList: React.FC = () => (
-  <ListView endpoint="/content/news" columns={settings.columns} templates={settings.templates} />
+  <ListView endpoint="/content/articles" columns={settings.columns} templates={settings.templates} />
 );
 
 export default withStore(
