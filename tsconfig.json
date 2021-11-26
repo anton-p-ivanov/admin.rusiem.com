@@ -24,7 +24,9 @@
     "paths": {
       "components/*": ["components/*"],
       "views/*": ["views/*"],
+      "utils/*": ["utils/*"],
       "wrappers/*": ["wrappers/*"],
+      "@articles/*": ["modules/content/modules/articles/*"],
       "@news/*": ["modules/content/modules/news/*"]
     }
   },

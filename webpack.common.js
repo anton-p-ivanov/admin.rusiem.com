@@ -22,6 +22,7 @@ module.exports = {
     modules: [__dirname, "src", "node_modules"],
     extensions: ["*", ".js", ".jsx", ".tsx", ".ts"],
     alias: {
+      '@articles': path.resolve(__dirname, "src/modules/content/modules/articles"),
       '@news': path.resolve(__dirname, "src/modules/content/modules/news")
     }
   },
