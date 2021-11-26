@@ -4,7 +4,7 @@ $sizes: (small: 400px, large: 800px);
 
 .modal {
   &__content {
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: stretch;
     position: fixed;
@@ -32,12 +32,6 @@ $sizes: (small: 400px, large: 800px);
     flex-grow: 1;
     padding: 1rem 1rem;
     overflow-y: auto;
-  }
-
-  &--visible {
-    .modal__content {
-      display: flex;
-    }
   }
 }
 

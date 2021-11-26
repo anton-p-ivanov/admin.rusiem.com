@@ -1,7 +1,7 @@
 import React from 'react';
 
-type TModalContext = {
-  toggle?: (value?: boolean) => void;
-};
+import type { TModalContext } from './types';
 
-export default React.createContext<TModalContext>({});
+export default React.createContext<TModalContext>({
+  isVisible: false,
+});

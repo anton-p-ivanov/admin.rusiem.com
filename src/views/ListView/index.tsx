@@ -3,6 +3,9 @@ import React, { useEffect } from 'react';
 import { v4 } from 'uuid';
 
 import { DataTable, Pagination } from 'components';
+import ConfirmView from 'views/ConfirmView';
+import withConfirm from 'wrappers/withConfirm';
+import withModal from 'wrappers/withModal';
 
 import ListViewSort from './components/ListViewSort';
 import withStore, { useStore } from './store';
@@ -59,4 +62,5 @@ const ListView: React.FC<TListViewProps> = (props) => {
 };
 
 export { withStore };
-export default ListView;
+
+export default withModal(ListView, withConfirm(ConfirmView));

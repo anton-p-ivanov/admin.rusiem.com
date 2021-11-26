@@ -1,28 +1,31 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
-
-import Modal from 'components/Modal';
-import useClickOutside from 'utils/useClickOutside';
+import React, { useState } from 'react';
 
 import Context from './context';
 
-function withModal<T>(
+import type { TModalProps } from './types';
+
+function withModal<T, M extends TModalProps>(
   Component: React.ComponentType<T>,
-  ModalComponent: React.ComponentType,
+  Modal: React.ComponentType<M>,
 ): React.FC<T> {
   const ComponentWithModal: React.FC<T> = (props: T) => {
-    const [ref, isVisible, setIsVisible] = useClickOutside<HTMLDivElement>(false);
+    const [isVisible, setIsVisible] = useState<boolean>(false);
+    const [modalProps, setModalProps] = useState<M>({} as M);
 
-    const toggleModal = (value?: boolean) => {
+    const toggle = (value?: boolean, propsValue?: M) => {
       setIsVisible(typeof value !== 'undefined' ? value : !isVisible);
+      if (typeof propsValue !== 'undefined') {
+        setModalProps(propsValue);
+      }
     };
 
     return (
-      <Context.Provider value={{ toggle: toggleModal }}>
+      <Context.Provider value={{ toggle, isVisible }}>
         <Component {...props} />
-        <Modal isVisible={isVisible} title="Test" ref={ref}>
-          <ModalComponent />
-        </Modal>
+        {isVisible && (
+          <Modal {...modalProps} />
+        )}
       </Context.Provider>
     );
   };
@@ -34,4 +37,5 @@ function withModal<T>(
   return ComponentWithModal;
 }
 
+export { Context };
 export default withModal;

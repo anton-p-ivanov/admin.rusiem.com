@@ -8,14 +8,11 @@ import type { TModalProps } from './types';
 import './styles.scss';
 
 const Modal = React.forwardRef<HTMLDivElement, TModalProps>((props, ref) => {
-  const {
-    title, size, isVisible = false, children,
-  } = props;
+  const { title, size, children } = props;
 
   const className = classNames(
     'modal',
     size && `modal--${size}`,
-    isVisible && 'modal--visible',
   );
 
   return (
@@ -28,7 +25,7 @@ const Modal = React.forwardRef<HTMLDivElement, TModalProps>((props, ref) => {
           {children}
         </div>
       </div>
-      {isVisible && <Overlay />}
+      <Overlay />
     </div>
   );
 });
