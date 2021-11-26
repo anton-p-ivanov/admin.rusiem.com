@@ -1,6 +1,6 @@
 import { TDataWorkflow } from 'config/types';
 
-export type TDataNews = {
+export type TDataArticle = {
   uuid?: string;
   title: string;
   description: string;

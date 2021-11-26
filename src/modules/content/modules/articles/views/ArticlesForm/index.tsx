@@ -10,19 +10,19 @@ import { LeftPane, RightPane } from './components';
 import defaults from './defaults';
 import _fields from './fields';
 
-import type { TNewsFormProps } from './types';
+import type { TArticlesFormProps } from './types';
 import './styles.scss';
 
-const NewsForm: React.FC<TNewsFormProps> = (props) => {
+const ArticlesForm: React.FC<TArticlesFormProps> = (props) => {
   const { isNewElement = false } = props;
   const { uuid } = useParams();
   const { state, update } = useStore();
   const fields = useFields(_fields);
 
   const endpoints = {
-    request: uuid && `GET:/content/news/${uuid}`,
-    submit: isNewElement ? 'POST:/content/news' : (uuid && `PUT:/content/news/${uuid}`),
-    success: 'GET:/content/news',
+    request: uuid && `GET:/content/articles/${uuid}`,
+    submit: isNewElement ? 'POST:/content/articles' : (uuid && `PUT:/content/articles/${uuid}`),
+    success: 'GET:/content/articles',
   };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -38,7 +38,7 @@ const NewsForm: React.FC<TNewsFormProps> = (props) => {
         <Button isSubmit variant="primary">
           Сохранить
         </Button>
-        <Link to="/content/news" className="btn btn--default">
+        <Link to="/content/articles" className="btn btn--default">
           Отменить
         </Link>
       </Form.Actions>
@@ -47,4 +47,4 @@ const NewsForm: React.FC<TNewsFormProps> = (props) => {
   );
 };
 
-export default withStore(NewsForm);
+export default withStore(ArticlesForm);
