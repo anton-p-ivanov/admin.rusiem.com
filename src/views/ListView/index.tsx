@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import { v4 } from 'uuid';
 
-import { DataTable, Pagination } from 'components';
+import { Alert, DataTable, Pagination } from 'components';
 import ConfirmView from 'views/ConfirmView';
 import withConfirm from 'wrappers/withConfirm';
 import withModal from 'wrappers/withModal';
@@ -44,6 +44,7 @@ const ListView: React.FC<TListViewProps> = (props) => {
           <ListViewSort columns={columns} />
         </Toolbar>
       )}
+      {state.isFiltered && <Alert variant="warning">Показаны все элементы с учётом параметров фильтрации</Alert>}
       <DataTable columns={columns}>
         {state.data.length === 0 && <DataTable.Empty span={columns.length} />}
         {state.data.map((item) => (

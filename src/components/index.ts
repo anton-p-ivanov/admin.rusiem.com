@@ -1,3 +1,4 @@
+import Alert from './Alert';
 import Button from './Button';
 import DataFormat from './DataFormat';
 import DataTable from './DataTable';
@@ -12,6 +13,7 @@ import Pagination from './Pagination';
 import Tabs from './Tabs';
 
 export {
+  Alert,
   Button,
   DataFormat,
   DataTable,
