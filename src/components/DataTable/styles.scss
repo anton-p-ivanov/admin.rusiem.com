@@ -1,0 +1,67 @@
+@use "sass:math";
+@import "src/assets/variables";
+
+@mixin data-table-cell {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: $cell-padding-y $cell-padding-x;
+  text-align: left;
+}
+
+.data-table {
+  position: relative;
+  margin-bottom: 1rem;
+  flex: 1 0 auto;
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+
+  &__header {
+    @include data-table-cell;
+    border-bottom: solid 1px $color-gray-light;
+    font-weight: $font-weight-bold;
+  }
+
+  &__cell {
+    @include data-table-cell;
+    border-bottom: solid 1px $color-gray-lightest;
+
+    &--context {
+      position: relative;
+      color: $color-gray-dark;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0;
+      overflow: visible;
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+
+    @each $name, $color in $colors {
+      &--#{$name} {
+        background-color: $color;
+      }
+    }
+  }
+
+  &__col {
+    &--date {
+      width: math.div(100px, 16px) + $cell-padding-x * 2;
+    }
+
+    &--datetime {
+      width: math.div(150px, 16px) + $cell-padding-x * 2;
+    }
+
+    &--boolean {
+      width: math.div(100px, 16px) + $cell-padding-x * 2;
+    }
+
+    &--context {
+      width: 25px;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+@import "src/assets/variables";
+
+.form-view {
+  &--auth-form {
+    width: 300px;
+    padding: 2rem;
+    background-color: $color-white;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+    box-sizing: content-box;
+
+    .form {
+      &__logo {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      &__title {
+        font-size: $font-size-lg;
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      &__label {
+        display: none;
+      }
+
+      &__actions {
+        justify-content: center;
+        border: 0;
+      }
+    }
+  }
+}
+

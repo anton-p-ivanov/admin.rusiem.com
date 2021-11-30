@@ -1,0 +1,36 @@
+@import "src/assets/variables";
+
+.page-view {
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2rem;
+  padding-right: 2rem;
+
+  &__header {
+    flex: 0 0 $header-height;
+    display: flex;
+    align-items: center;
+    font-size: $font-size-xl;
+    letter-spacing: -.025rem;
+  }
+
+  &__body {
+    flex: 1 1 auto;
+    position: relative;
+  }
+
+  &__content {
+    padding: 2rem;
+    border-radius: $border-radius;
+    background-color: $color-white;
+    box-shadow: $shadow;
+  }
+
+  h2 {
+    border-bottom: solid 1px $color-gray-lightest;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+  }
+}

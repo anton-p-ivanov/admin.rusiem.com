@@ -1,0 +1,19 @@
+@import "src/assets/variables";
+
+.layout {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+
+  &--main {
+    background-color: $color-gray-lightest;
+  }
+
+  &__sidebar {
+    flex: 0 0 $sidebar-width;
+  }
+
+  &__content {
+    flex: 1 1 auto;
+  }
+}

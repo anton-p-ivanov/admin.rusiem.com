@@ -1,0 +1,21 @@
+@import "src/assets/variables";
+
+.list-view__sort {
+  .form {
+    &.form--sort {
+      display: flex;
+      align-content: center;
+      align-items: center;
+      justify-content: flex-end;
+      flex-direction: row;
+
+      * {
+        margin-bottom: 0;
+      }
+
+      * ~ * {
+        margin-left: .25rem;
+      }
+    }
+  }
+}

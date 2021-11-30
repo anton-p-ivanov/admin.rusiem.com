@@ -1,0 +1,24 @@
+@import "src/assets/variables";
+
+.nav__item--group {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+
+  &-toggle {
+    display: flex;
+    justify-content: space-between;
+
+    .feather {
+      transition: $transition-speed $transition-function;
+
+      &--expanded {
+        transform: rotateZ(1.5turn);
+      }
+
+      &--collapsed {
+        transform: rotateZ(0turn)
+      }
+    }
+  }
+}

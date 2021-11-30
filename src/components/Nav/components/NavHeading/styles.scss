@@ -1,0 +1,10 @@
+@import "src/assets/variables";
+
+.nav__item--heading {
+  color: $color-gray-medium;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .08rem;
+  padding: 1rem 1.5rem;
+  text-transform: uppercase;
+}

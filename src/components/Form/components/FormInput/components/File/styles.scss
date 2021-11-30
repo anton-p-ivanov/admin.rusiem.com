@@ -1,0 +1,22 @@
+@import "src/assets/variables";
+
+.file-select-button {
+  display: flex;
+
+  button {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0;
+  }
+
+  input {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.form__input {
+  &.form__input--file {
+    display: none;
+  }
+}

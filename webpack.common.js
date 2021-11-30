@@ -1,35 +1,33 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const path = require("path");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 module.exports = {
-  mode: "development",
-  entry: "./src/index.tsx",
+  entry: {
+    app: './src/index.tsx'
+  },
   output: {
-    filename: "[name].[fullhash].js",
-    path: path.resolve(__dirname, "public/dist"),
-    publicPath: "/"
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, 'public/build'),
+    publicPath: '/',
+    clean: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "public", "index.html"),
+      title: 'Production',
+      template: path.resolve(__dirname, 'public', 'index.html'),
+      favicon: path.resolve(__dirname, 'public', 'favicon.ico'),
     })
   ],
   resolve: {
     modules: [__dirname, "src", "node_modules"],
     extensions: ["*", ".js", ".jsx", ".tsx", ".ts"],
+    alias: {
+      '@articles': path.resolve(__dirname, "src/modules/content/modules/articles"),
+      '@news': path.resolve(__dirname, "src/modules/content/modules/news")
+    }
   },
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        enforce: "pre",
-        use: ["source-map-loader"],
-      },
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: require.resolve("babel-loader"),
-      },
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
@@ -50,15 +48,16 @@ module.exports = {
       {
         test: /\.s[ac]ss$/,
         include: /src/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: [
+          "style-loader",
+          "css-loader",
+          "sass-loader",
+        ],
       },
       {
         test: /\.png|svg|jpg|gif$/,
         use: ["file-loader"],
       },
     ],
-  },
-  devServer: {
-    historyApiFallback: true,
   },
 };

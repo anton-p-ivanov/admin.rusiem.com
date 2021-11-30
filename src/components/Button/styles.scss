@@ -1,0 +1,96 @@
+@import "src/assets/variables";
+
+$button-colors: (
+        info: (background-color: $color-info, color: $color-white),
+        success: (background-color: $color-success, color: $color-white),
+        warning: (background-color: $color-warning, color: $color-white),
+        danger: (background-color: $color-danger, color: $color-white),
+        primary: (background-color: $color-primary, color: $color-white),
+        default: (background-color: $color-white, color: $color-text-body, border-color: $color-gray-light),
+        link: (background-color: transparent, color: $color-text-body)
+);
+
+$button-size-map: (
+  default: (padding: .625rem .75rem, line-height: 1.25rem, height: 2.5rem),
+  small: (padding: .5rem, line-height: 1rem, height: 2rem),
+  large: (padding: .625rem .75rem, line-height: 1.25rem, height: 2.5rem),
+);
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: solid $button-border-width transparent;
+  padding: .625rem .75rem;
+  line-height: 1.25rem;
+  height: 2.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: $border-radius;
+  transition: all $transition-speed $transition-function;
+  text-decoration: none;
+
+  &--disabled {
+    cursor: not-allowed;
+
+    &, &:hover, &:focus, &:active {
+      background-color: transparent;
+      border-color: transparent;
+      color: $color-gray-light;
+    }
+  }
+
+  @each $size, $size-map in $button-size-map {
+    &--#{$size} {
+      @each $property, $value in $size-map {
+        #{$property}: $value;
+      }
+    }
+  }
+
+  @each $status, $color-map in $button-colors {
+    &--#{$status} {
+      @each $property, $color in $color-map {
+        #{$property}: $color;
+      }
+
+      &:hover,
+      &:active {
+        background-color: darken(map_get($color-map, 'background-color'), 10%);
+        @if map_has_key($color-map, 'border-color') {
+          border-color: darken(map_get($color-map, 'border-color'), 10%);
+        }
+      }
+    }
+
+    &--disabled {
+      cursor: not-allowed;
+
+      &, &:hover, &:focus, &:active {
+        background-color: $color-gray-light;
+        border-color: $color-gray-light;
+        color: $color-gray-medium;
+      }
+    }
+  }
+
+  &--inverse {
+    &.btn--disabled {
+      background-color: $color-white;
+      border-color: $color-white;
+      color: $color-gray-light;
+    }
+  }
+
+  &--link {
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &:hover, &:focus, &:active {
+    text-decoration: none;
+  }
+}

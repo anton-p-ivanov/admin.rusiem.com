@@ -1,0 +1,13 @@
+@import "src/assets/variables";
+
+.form__actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: solid 1px $color-gray-lightest;
+
+  * + * {
+    margin-left: 1rem;
+  }
+}

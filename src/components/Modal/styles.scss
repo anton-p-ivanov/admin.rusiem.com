@@ -1,0 +1,45 @@
+@import "src/assets/variables";
+
+$sizes: (small: 400px, large: 800px);
+
+.modal {
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    position: fixed;
+    z-index: 1100;
+    top: 20%;
+    left: calc((100% - 600px) / 2);
+    height: auto;
+    width: 600px;
+    background-color: $color-white;
+    border-radius: $border-radius;
+    box-shadow: $shadow;
+    transition: transform $transition-speed $transition-function;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    font-size: 1.25rem;
+    letter-spacing: -.025rem;
+  }
+
+  &__body {
+    flex-grow: 1;
+    padding: 1rem 1rem;
+    overflow-y: auto;
+  }
+}
+
+@each $name, $value in $sizes {
+  .modal--#{$name} {
+    .modal__content {
+      left: calc((100% - #{$value}) / 2);
+      width: $value;
+    }
+  }
+}
