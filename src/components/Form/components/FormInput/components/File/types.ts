@@ -17,7 +17,8 @@ export type TFileInfo = {
   size: number,
   name: string,
   type: string,
-  image: TFileImage,
+  src?: string,
+  image?: TFileImage,
 };
 
 export type TFileContext = {

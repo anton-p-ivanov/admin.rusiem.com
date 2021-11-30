@@ -3,9 +3,9 @@ import React, { useContext, useEffect, useState } from 'react';
 import Context, { FILE_INFO_INITIAL_STATE } from '../../context';
 import { useUtils } from '../../hooks';
 
-import type { TFileInput } from './types';
+import type { TFileInputProps } from './types';
 
-const FileInput: React.FC<TFileInput> = ({ field }) => {
+const FileInput: React.FC<TFileInputProps> = ({ field }) => {
   const [selectedFile, setSelectedFile] = useState<File>();
   const { fileInfo, setFileInfo, ref } = useContext(Context);
   const utils = useUtils();
@@ -35,14 +35,16 @@ const FileInput: React.FC<TFileInput> = ({ field }) => {
 
   useEffect(() => {
     if (field.value) {
+      setFileInfo({ ...fileInfo, ...field.value });
+
       if (field.value.uuid) {
         (async (uuid: string) => {
-          const src = await utils.requestImagePreview(uuid);
-          const image = { ...fileInfo.image, ...field.value?.image, src };
-          setFileInfo({ ...fileInfo, ...field.value, image });
+          if (fileInfo.image) {
+            const src = await utils.requestImagePreview(uuid);
+            const image = { ...fileInfo.image, ...field.value?.image, src };
+            setFileInfo({ ...fileInfo, image });
+          }
         })(field.value.uuid);
-      } else {
-        setFileInfo({ ...fileInfo, ...field.value });
       }
     } else {
       setFileInfo({ ...fileInfo, ...FILE_INFO_INITIAL_STATE });

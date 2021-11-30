@@ -1,8 +1,7 @@
-import { AxiosRequestConfig } from 'axios';
-
 import API from 'utils/api';
 
 import type { TFileImage, TFileInfo } from '../types';
+import type { AxiosRequestConfig } from 'axios';
 import type { TFormField } from 'components/Form/types';
 
 type TUseUtils = () => {
@@ -54,6 +53,11 @@ const useUtils: TUseUtils = () => {
     return (await API.request<string>(config)).data;
   };
 
+  /**
+   * Returns image width, height and src attributes.
+   *
+   * @param file
+   */
   const getImageProps = (file: File) => new Promise<TFileImage>((resolve, reject) => {
     const reader = new FileReader();
     const image = new Image();
