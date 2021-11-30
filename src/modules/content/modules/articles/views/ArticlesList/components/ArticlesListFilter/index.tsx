@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 
 import { Button, Form } from 'components';
-import { FormView } from 'views';
-import withStore from 'views/FormView/store';
+import FormView, { withStore } from 'views/FormView';
 
 import useFields from './hooks/useFields';
 import useHandlers from './hooks/useHandlers';
