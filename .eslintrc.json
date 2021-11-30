@@ -74,7 +74,8 @@
         "extensions": [".ts", ".tsx"],
         "map": [
           ["@articles", "./src/modules/content/modules/articles"],
-          ["@news", "./src/modules/content/modules/news"]
+          ["@news", "./src/modules/content/modules/news"],
+          ["@vacancies", "./src/modules/content/modules/vacancies"]
         ]
       }
     }
