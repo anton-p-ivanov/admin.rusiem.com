@@ -8,10 +8,11 @@ import type { TArticlesListContextProps } from './types';
 const ArticlesListContext: React.FC<TArticlesListContextProps> = ({ data }) => {
   const { toggle: toggleConfirm } = useContext(ModalContext);
   const toggleDropdown = <Icon name="more-vertical" title="Выберите действие" />;
+  const { uuid = 'unknown' } = data;
 
   const removeHandler = () => {
     const description = `Вы собираетесь удалить публикацию "${data.title}".`;
-    const endpoint = `/content/articles/${data.uuid}`;
+    const endpoint = `/content/articles/${uuid}`;
 
     return (
       toggleConfirm && toggleConfirm(true, { description, endpoint })
@@ -20,8 +21,8 @@ const ArticlesListContext: React.FC<TArticlesListContextProps> = ({ data }) => {
 
   return (
     <DropDown toggle={toggleDropdown}>
-      <DropDown.Link icon="edit" route={`/content/articles/${data.uuid}/edit`}>Изменить</DropDown.Link>
-      <DropDown.Link icon="copy" route={`/content/articles/${data.uuid}/copy`}>Копировать</DropDown.Link>
+      <DropDown.Link icon="edit" route={`/content/articles/${uuid}/edit`}>Изменить</DropDown.Link>
+      <DropDown.Link icon="copy" route={`/content/articles/${uuid}/copy`}>Копировать</DropDown.Link>
       <DropDown.Divider />
       <DropDown.Button icon="trash-2" onClick={removeHandler}>Удалить</DropDown.Button>
     </DropDown>
