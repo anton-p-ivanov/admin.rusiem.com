@@ -1,36 +1,11 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 
-import { Button, DataToolbar, Icon } from 'components';
-import Context from 'wrappers/withOffCanvas/context';
+import { ListViewToolbar } from 'views/ListView/components';
 
-const NewsListToolbar: React.FC = ({ children }) => {
-  const { toggle } = useContext(Context);
-
-  const toggleFilter = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    return toggle && toggle();
-  };
-
-  return (
-    <DataToolbar>
-      <DataToolbar.Group>
-        <DataToolbar.Item>
-          <Link to="/content/news/create" className="btn btn--success">Добавить новость</Link>
-        </DataToolbar.Item>
-      </DataToolbar.Group>
-      <DataToolbar.Group>
-        <DataToolbar.Item>
-          {children}
-        </DataToolbar.Item>
-        <DataToolbar.Item>
-          <Button onClick={toggleFilter}>
-            <Icon name="filter" title="Параметры фильтрации" />
-          </Button>
-        </DataToolbar.Item>
-      </DataToolbar.Group>
-    </DataToolbar>
-  );
-};
+const NewsListToolbar: React.FC = ({ children }) => (
+  <ListViewToolbar createUrl="/content/news/create" createLabel="Добавить новость">
+    {children}
+  </ListViewToolbar>
+);
 
 export default NewsListToolbar;
