@@ -2,9 +2,9 @@ import * as types from './actions';
 
 import type { TReducerAction, TReducerState } from './types';
 
-const updateState = (state: TReducerState): TReducerAction => ({
+const updateState = (payload: TReducerState): TReducerAction => ({
   type: types.UPDATE_STATE,
-  payload: state,
+  payload,
 });
 
 const resetState = (): TReducerAction => ({
@@ -15,9 +15,9 @@ const fetchSent = (): TReducerAction => ({
   type: types.FETCH_SENT,
 });
 
-const fetchSucceed = (state: TReducerState): TReducerAction => ({
+const fetchSucceed = (payload: TReducerState): TReducerAction => ({
   type: types.FETCH_SUCCEED,
-  payload: state,
+  payload,
 });
 
 const fetchFailed = (): TReducerAction => ({

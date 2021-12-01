@@ -11,10 +11,6 @@ const INITIAL_STATE: TReducerState = {
     size: 20,
     total: 0,
   },
-  sort: {
-    sortBy: 'updatedAt',
-    sortOrder: 'DESC',
-  },
   isFiltered: false,
   timestamp: new Date().getTime(),
 };

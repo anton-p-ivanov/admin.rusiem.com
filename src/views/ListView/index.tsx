@@ -10,10 +10,17 @@ import withModal from 'wrappers/withModal';
 import ListViewSort from './components/ListViewSort';
 import withStore, { useStore } from './store';
 
-import type { TListViewProps, TListViewRow } from './types';
+import type { TListViewProps, TListViewRow, TListViewSort } from './types';
+
+const defaultSort: TListViewSort = {
+  sortBy: 'updatedAt',
+  sortOrder: 'DESC',
+};
 
 const ListView: React.FC<TListViewProps> = (props) => {
-  const { endpoint, columns, templates } = props;
+  const {
+    endpoint, columns, templates, sort = defaultSort,
+  } = props;
   const { state, update, request } = useStore();
   const { pagination } = state;
 
@@ -21,12 +28,16 @@ const ListView: React.FC<TListViewProps> = (props) => {
     endpoint,
     page: pagination.page,
     size: pagination.size,
+    sort: state.sort,
   };
 
   const deps = JSON.stringify(params);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => request(params), [deps, state.timestamp]);
+  useEffect(() => update({ ...state, sort }), []);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => state.sort && request(params), [deps, state.timestamp]);
 
   // Callback used in pagination to navigate through pages
   const navigate = (page: number) => {
@@ -38,8 +49,7 @@ const ListView: React.FC<TListViewProps> = (props) => {
 
   return (
     <>
-      {Toolbar
-      && (
+      {Toolbar && (
         <Toolbar>
           <ListViewSort columns={columns} />
         </Toolbar>

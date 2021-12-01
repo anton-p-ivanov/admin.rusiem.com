@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Form from 'components/Form';
+import { TListViewSort } from 'views/ListView/types';
 
 import { useStore } from '../../store';
 import fields from './fields';
@@ -16,11 +17,11 @@ const ListViewSort: React.FC<TListViewSortProps> = ({ columns }) => {
   Object.keys(fields).forEach((key) => {
     const field = fields[key] as TFormField<string>;
     const extend = {
-      value: state.sort[key],
+      value: state.sort ? state.sort[key] : '',
       onChange: (v: string) => {
         update({
           ...state,
-          sort: { ...state.sort, [key]: v },
+          sort: state.sort ? { ...state.sort, [key]: v } : { [key]: v } as TListViewSort,
           timestamp: new Date().getTime(),
         });
       },

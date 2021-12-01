@@ -7,6 +7,7 @@ export type TListViewProps = {
   endpoint: string;
   templates: TListViewTemplates;
   columns: TListViewColumn[];
+  sort?: TListViewSort;
 };
 
 export type TListViewData = TReducerData;
@@ -32,6 +33,7 @@ export type TListViewRequestConfig = {
   endpoint: string;
   page: number;
   size: number;
+  // sort: TListViewSort;
 };
 
 export type TListViewPagination = {
