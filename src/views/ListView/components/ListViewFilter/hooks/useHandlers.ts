@@ -9,9 +9,7 @@ import Context from 'wrappers/withOffCanvas/context';
 
 import type { TFilterResponse, TUseHandlers } from '../types';
 
-const useHandlers: TUseHandlers = () => {
-  const param = 'content.news.filter';
-
+const useHandlers: TUseHandlers = (param) => {
   const formView = useFormViewStore();
   const listView = useListViewStore();
   const { toggle } = useContext(Context);
