@@ -20,3 +20,9 @@ export type TDataWorkflow = {
   updatedAt: string;
   isDeleted: boolean;
 };
+
+export type TDataEntity = {
+  uuid?: string;
+  title: string;
+  workflow?: TDataWorkflow;
+};

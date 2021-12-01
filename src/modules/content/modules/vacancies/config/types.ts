@@ -1,8 +1,6 @@
-import { TDataWorkflow } from 'config/types';
+import { TDataEntity } from 'config/types';
 
-export type TDataVacancy = {
-  uuid?: string;
-  title: string;
+export type TDataVacancy = TDataEntity & {
   description: string;
   content: string;
   slug: string;
@@ -11,7 +9,6 @@ export type TDataVacancy = {
   isPublished: boolean;
   publishedAt: string;
   group?: TDataVacancyGroup;
-  workflow?: TDataWorkflow;
 };
 
 export type TDataVacancyGroup = {

@@ -1,8 +1,6 @@
-import { TDataWorkflow } from 'config/types';
+import { TDataEntity } from 'config/types';
 
-export type TDataNews = {
-  uuid?: string;
-  title: string;
+export type TDataNews = TDataEntity & {
   description: string;
   content: string;
   slug: string;
@@ -11,7 +9,6 @@ export type TDataNews = {
   isPublished: boolean;
   isPinned: boolean;
   publishedAt: string;
-  workflow?: TDataWorkflow;
   meta: TDataMeta[];
 };
 
