@@ -7,7 +7,7 @@ const navigation: TNavItem[] = [
     items: [
       {
         title: 'Список вакансий',
-        route: '/content/vacancies',
+        route: '/content/vacancies/vacancies',
       },
       {
         title: 'Группы вакансий',
