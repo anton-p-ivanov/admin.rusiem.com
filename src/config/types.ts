@@ -26,3 +26,7 @@ export type TDataEntity = {
   title: string;
   workflow?: TDataWorkflow;
 };
+
+export type TDataMediaFile = {
+  uuid?: string;
+};

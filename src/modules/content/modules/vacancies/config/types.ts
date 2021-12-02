@@ -1,4 +1,4 @@
-import { TDataEntity } from 'config/types';
+import type { TDataEntity, TDataMediaFile, TDataWorkflow } from 'config/types';
 
 export type TDataVacancy = TDataEntity & {
   description: string;
@@ -17,4 +17,14 @@ export type TDataVacancyGroup = {
   description: string;
   slug: string;
   sort: number;
+};
+
+export type TDataVacancyResponse = {
+  uuid?: string;
+  fullName: string;
+  email: string;
+  phone: string;
+  vacancy: TDataVacancy;
+  file: TDataMediaFile;
+  workflow?: TDataWorkflow;
 };
