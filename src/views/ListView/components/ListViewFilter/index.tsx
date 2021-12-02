@@ -1,28 +1,16 @@
 import React, { useEffect } from 'react';
 
 import { Button, Form } from 'components';
-import FormView, { withStore } from 'views/FormView';
+import FormView, { Context, withStore } from 'views/FormView';
 
-import useFields from './hooks/useFields';
 import useHandlers from './hooks/useHandlers';
 
 import type { TListViewFilterProps } from './types';
-import type { TFormFields } from 'components/Form/types';
 
 import './styles.scss';
 
-const defaultRenderFields = (f: TFormFields) => (
-  <>
-    <Form.Field field={f.title} />
-    <Form.Field field={f.publishedAt} />
-    <Form.Field field={f.site} />
-    <Form.Field field={f.locale} />
-    <Form.Field field={f.isPublished} />
-  </>
-);
-
 const ListViewFilter: React.FC<TListViewFilterProps> = (props) => {
-  const { param, fields, renderFields = defaultRenderFields } = props;
+  const { param, fields, children } = props;
 
   const handlers = useHandlers(param);
 
@@ -31,9 +19,19 @@ const ListViewFilter: React.FC<TListViewFilterProps> = (props) => {
 
   return (
     <div className="list-view__filter">
-      <FormView>
+      <FormView fields={fields}>
         <div className="form__fields">
-          {renderFields(useFields(fields))}
+          <Context.Consumer>
+            {children || ((context) => (
+              <>
+                <Form.Field field={context.fields.title} />
+                <Form.Field field={context.fields.publishedAt} />
+                <Form.Field field={context.fields.site} />
+                <Form.Field field={context.fields.locale} />
+                <Form.Field field={context.fields.isPublished} />
+              </>
+            ))}
+          </Context.Consumer>
         </div>
         <Form.Actions>
           <Button onClick={handlers.apply} variant="primary">

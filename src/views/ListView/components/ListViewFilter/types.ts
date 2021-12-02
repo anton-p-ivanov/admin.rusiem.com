@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { TFormViewContext } from 'views/FormView/types';
+
 import type { TFormFields } from 'components/Form/types';
 import type { TReducerData } from 'views/FormView/store/types';
 
@@ -18,5 +20,5 @@ export type TUseHandlers = (param: string) => {
 export type TListViewFilterProps = {
   param: string;
   fields: TFormFields;
-  renderFields?: (fields: TFormFields) => React.ReactNode;
+  children?: (value: TFormViewContext) => React.ReactNode;
 };

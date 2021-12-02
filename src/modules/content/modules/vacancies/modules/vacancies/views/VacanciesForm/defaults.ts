@@ -2,8 +2,8 @@ import { TDataVacancy } from '@vacancies/config/types';
 
 const date = new Date();
 const defaults: TDataVacancy = {
-  slug: '',
-  title: '',
+  slug: 'novaya-vakansiya',
+  title: 'Новая вакансия',
   content: '',
   description: '',
   isPublished: true,
