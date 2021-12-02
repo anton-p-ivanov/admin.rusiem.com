@@ -23,9 +23,11 @@ const ListViewToolbar: React.FC<TListViewToolbarProps> = (props) => {
   return (
     <DataToolbar>
       <DataToolbar.Group>
-        <DataToolbar.Item>
-          <Link to={createUrl} className="btn btn--success">{createLabel}</Link>
-        </DataToolbar.Item>
+        {createUrl && (
+          <DataToolbar.Item>
+            <Link to={createUrl} className="btn btn--success">{createLabel}</Link>
+          </DataToolbar.Item>
+        )}
       </DataToolbar.Group>
       <DataToolbar.Group>
         <DataToolbar.Item>

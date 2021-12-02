@@ -1,5 +1,5 @@
 export type TListViewToolbarProps = {
-  createUrl: string;
+  createUrl?: string;
   createLabel?: string;
   withFilter?: boolean;
 };
