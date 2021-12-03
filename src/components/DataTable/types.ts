@@ -9,7 +9,8 @@ export type TDataColumn = {
 };
 
 export type TDataTableProps = {
-  columns: TDataColumn[];
+  columns?: TDataColumn[];
+  variant?: string;
 };
 
 export type TDataTable = React.FC<TDataTableProps> & {
