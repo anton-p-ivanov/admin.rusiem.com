@@ -1,0 +1,11 @@
+.data-table--response {
+  width: auto;
+}
+
+.buttons {
+  display: flex;
+
+  .btn ~ .btn {
+    margin-left: .25rem;
+  }
+}
