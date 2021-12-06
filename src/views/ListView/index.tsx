@@ -56,17 +56,17 @@ const ListView: React.FC<TListViewProps> = (props) => {
       )}
       {state.isFiltered && <Alert variant="warning">Показаны все элементы с учётом параметров фильтрации</Alert>}
       <DataTable columns={columns}>
-        {state.status === 'FETCHING'
-          ? <DataTable.Loading span={columns.length} />
-          : (
-            <>
-              {state.data.length === 0 && <DataTable.Empty span={columns.length} />}
-              {state.data.map((item) => (
-                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-                <DataTable.Row key={v4()} template={<Row data={item} />} />
-              ))}
-            </>
-          )}
+        {state.status === 'FETCHING' && <DataTable.Loading span={columns.length} rows={pagination.size} /> }
+        {state.status === 'FETCH_FAILED' && <DataTable.Error span={columns.length} />}
+        {state.status === 'WAITING' && (
+          <>
+            {state.data.length === 0 && <DataTable.Empty span={columns.length} />}
+            {state.data.map((item) => (
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+              <DataTable.Row key={v4()} template={<Row data={item} />} />
+            ))}
+          </>
+        )}
       </DataTable>
       <Pagination
         resultsTotal={pagination.total}

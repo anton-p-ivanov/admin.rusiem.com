@@ -40,6 +40,7 @@ const DataTable: TDataTable = (props) => {
 
 DataTable.Row = Components.DataTableRow;
 DataTable.Empty = Components.DataTableEmpty;
+DataTable.Error = Components.DataTableError;
 DataTable.Loading = Components.DataTableLoading;
 
 export default DataTable;

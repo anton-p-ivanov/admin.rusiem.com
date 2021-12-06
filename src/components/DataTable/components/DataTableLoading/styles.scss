@@ -14,3 +14,25 @@
     padding: 1rem 2rem;
   }
 }
+
+.data-table__cell {
+  &--loading > span {
+    display: block;
+    border-radius: $border-radius;
+    background-color: $color-gray-lightest;
+    opacity: 100%;
+    animation: gradient 1s ease infinite;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    opacity: 100%;
+  }
+  50% {
+    opacity: 50%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
