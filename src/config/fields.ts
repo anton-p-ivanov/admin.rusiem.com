@@ -11,6 +11,7 @@ const title: TFormField<string> = {
 };
 
 const slug: TFormField<string> = {
+  type: 'slug',
   name: 'slug',
   label: 'Символьный код',
   hint: 'Допускается не более 250 символов из набора [a-z0-9_]. Генерируется автоматически если значение не заполнено.',

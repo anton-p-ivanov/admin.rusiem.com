@@ -10,7 +10,7 @@ const LeftPane: React.FC<TLeftPaneProps> = ({ fields }) => (
       <Form.Field field={fields.publishedAt} />
     </div>
     <Form.Field field={fields.title} />
-    <Form.Field field={fields.slug} />
+    <Form.Field field={{ ...fields.slug, attrs: { value: fields.title.value } }} />
     <Form.Field field={fields.description} />
     <Form.Field field={fields.content} />
     <div className="grid-view__columns">
