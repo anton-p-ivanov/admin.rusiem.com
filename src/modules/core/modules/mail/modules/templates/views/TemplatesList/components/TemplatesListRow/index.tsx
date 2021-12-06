@@ -20,7 +20,7 @@ const TemplatesListRow: React.FC<TTemplatesListRowProps> = ({ data }) => (
         : <em>Нет данных</em>}
     </td>
     <td className="data-table__cell data-table__cell--context">
-      <TemplatesListContext data={data} />
+      <TemplatesListContext data={{ ...data, title: data.translations.ru.subject }} />
     </td>
   </>
 );

@@ -1,5 +1,6 @@
-import { TDataMailTemplate } from '@mail/config/types';
+import type { TDataMailTemplate } from '@mail/config/types';
+import type { TDataEntity } from 'config/types';
 
 export type TTemplatesListContextProps = {
-  data: TDataMailTemplate;
+  data: TDataEntity & TDataMailTemplate;
 };
