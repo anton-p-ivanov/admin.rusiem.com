@@ -2,7 +2,7 @@ import React from 'react';
 
 import classNames from 'classnames';
 
-import { DataTableEmpty, DataTableHeader, DataTableRow } from './components';
+import * as Components from './components';
 
 import type { TDataTable } from './types';
 
@@ -27,7 +27,7 @@ const DataTable: TDataTable = (props) => {
           <thead>
             <tr>
               {columns.map((column) => (
-                <DataTableHeader column={column} key={`data-header-${column.name}`} />
+                <Components.DataTableHeader column={column} key={`data-header-${column.name}`} />
               ))}
             </tr>
           </thead>
@@ -38,7 +38,8 @@ const DataTable: TDataTable = (props) => {
   );
 };
 
-DataTable.Row = DataTableRow;
-DataTable.Empty = DataTableEmpty;
+DataTable.Row = Components.DataTableRow;
+DataTable.Empty = Components.DataTableEmpty;
+DataTable.Loading = Components.DataTableLoading;
 
 export default DataTable;
