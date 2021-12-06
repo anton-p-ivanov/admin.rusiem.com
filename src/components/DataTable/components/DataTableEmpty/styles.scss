@@ -1,0 +1,16 @@
+@import "src/assets/variables";
+
+.data-table__empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-style: italic;
+  margin: 2rem 0;
+
+  div {
+    padding: 1rem 2rem;
+    background-color: $color-gray-lightest;
+    border-radius: $border-radius;
+  }
+}
