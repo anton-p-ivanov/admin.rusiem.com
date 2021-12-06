@@ -21,6 +21,7 @@ const API = {
   request: <T>(config: AxiosRequestConfig): Promise<AxiosResponse<T>> => {
     const token = localStorage.getItem('token');
     const headers = config.headers || {};
+    headers['Accept-Language'] = 'ru';
 
     if (token) {
       headers.Authorization = `Bearer ${token}`;
