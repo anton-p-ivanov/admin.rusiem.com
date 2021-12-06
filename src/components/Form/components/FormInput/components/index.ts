@@ -9,6 +9,7 @@ import Number from './Number';
 import Password from './Password';
 // import Roles from './Roles';
 import Select from './Select';
+import Slug from './Slug';
 // import Sites from './Sites';
 import Text from './Text';
 import TextArea from './TextArea';
@@ -32,6 +33,7 @@ export {
   // Roles,
   // Sites,
   Select,
+  Slug,
   Text,
   TextArea,
   // Workflow,

@@ -1,0 +1,14 @@
+.form-input__slug {
+  display: flex;
+
+  .form__input {
+    border-right: 0;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .btn {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+  }
+}
