@@ -28,7 +28,8 @@
       "wrappers/*": ["wrappers/*"],
       "@articles/*": ["modules/content/modules/articles/*"],
       "@news/*": ["modules/content/modules/news/*"],
-      "@vacancies/*": ["modules/content/modules/vacancies/*"]
+      "@vacancies/*": ["modules/content/modules/vacancies/*"],
+      "@mail/*": ["modules/core/modules/mail/*"]
     }
   },
   "include": [

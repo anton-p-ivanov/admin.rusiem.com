@@ -24,7 +24,8 @@ module.exports = {
     alias: {
       '@articles': path.resolve(__dirname, "src/modules/content/modules/articles"),
       '@news': path.resolve(__dirname, "src/modules/content/modules/news"),
-      '@vacancies': path.resolve(__dirname, "src/modules/content/modules/vacancies")
+      '@vacancies': path.resolve(__dirname, "src/modules/content/modules/vacancies"),
+      '@mail': path.resolve(__dirname, "src/modules/core/modules/mail")
     }
   },
   module: {

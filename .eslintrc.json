@@ -75,7 +75,8 @@
         "map": [
           ["@articles", "./src/modules/content/modules/articles"],
           ["@news", "./src/modules/content/modules/news"],
-          ["@vacancies", "./src/modules/content/modules/vacancies"]
+          ["@vacancies", "./src/modules/content/modules/vacancies"],
+          ["@mail", "./src/modules/core/modules/mail"]
         ]
       }
     }
