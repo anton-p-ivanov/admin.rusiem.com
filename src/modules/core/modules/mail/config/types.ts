@@ -1,11 +1,11 @@
 import type { TDataMediaFile, TDataWorkflow } from 'config/types';
 
 export type TDataMailTemplate = {
-  uuid: string,
+  uuid?: string,
   code: string,
   sender: string,
   recipient: string,
-  extraHeaders: Record<string, string>,
+  extraHeaders?: string,
   translations: {
     [key: string]: TDataMailTemplateLang
   },
@@ -14,6 +14,7 @@ export type TDataMailTemplate = {
 };
 
 export type TDataMailTemplateLang = {
+  [key: string]: string;
   locale: string,
   subject: string,
   text: string,

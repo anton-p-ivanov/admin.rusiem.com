@@ -30,3 +30,14 @@ export type TDataEntity = {
 export type TDataMediaFile = {
   uuid?: string;
 };
+
+export type TDataTranslation = {
+  translations: {
+    [key: string]: Record<string, string>
+  }
+};
+
+export type TLookupResult = {
+  value: string,
+  label: string,
+};
