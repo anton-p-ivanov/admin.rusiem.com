@@ -19,7 +19,9 @@ const Select: React.FC<TSelectProps> = ({ field }) => {
     optionsCallback, placeholder, size, isMultiple = false,
   } = attrs;
 
-  const [options, setOptions] = useState<TSelectOptions>(attrs.options || []);
+  const [options, setOptions] = useState<TSelectOptions>([]);
+
+  useEffect(() => setOptions(attrs.options || []), [attrs.options]);
 
   useEffect(() => {
     if (typeof optionsCallback === 'function') {
