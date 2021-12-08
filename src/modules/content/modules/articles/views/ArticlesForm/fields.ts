@@ -1,4 +1,6 @@
+import { TSelectOptions } from 'components/Form/components/FormInput/components/Select';
 import sharedFields from 'config/fields';
+import API from 'utils/api';
 
 import type { TFormField, TFormFields } from 'components/Form/types';
 
@@ -23,6 +25,18 @@ const isPinned: TFormField<boolean> = {
   hint: 'Закрепленные элементы отображаются вверху списка элементов.',
 };
 
+const tags: TFormField<string[]> = {
+  type: 'select',
+  name: 'tags',
+  label: 'Привязка к тегам',
+  hint: 'Выберите один или несколько тегов, которые будут присвоены элементу.',
+  attrs: {
+    isMultiple: true,
+    size: 10,
+    optionsCallback: (): Promise<TSelectOptions> => API.lookup<TSelectOptions>('/catalog/tags?context=article'),
+  },
+};
+
 const fields: TFormFields = {
   title: sharedFields.title,
   slug: sharedFields.slug,
@@ -33,7 +47,7 @@ const fields: TFormFields = {
   isPublished: sharedFields.isPublished,
   sites: sharedFields.sites,
   locale: sharedFields.locale,
-  tags: sharedFields.tags,
+  tags,
   attachment,
   source,
   isPinned,
