@@ -8,19 +8,17 @@ import Button from 'components/Button';
 import type { TTabsProps } from './types';
 import './styles.scss';
 
-const Tabs: React.FC<TTabsProps> = ({ items }) => {
+const Tabs: React.FC<TTabsProps> = (props) => {
+  const { items, variant } = props;
   const [activeTab, setActiveTab] = useState<number>(0);
-  const Tab = items[activeTab].component;
+
+  const wrapperClassName = classNames('tabs', variant && `tabs--${variant}`);
 
   return (
-    <div className="tabs">
+    <div className={wrapperClassName}>
       <ul className="tabs__nav">
         {items.map((item, index) => {
-          const className = classNames(
-            'tabs__item',
-            index === activeTab && 'tabs__item--active',
-          );
-
+          const className = classNames('tabs__item', index === activeTab && 'tabs__item--active');
           return (
             <li className={className} key={v4()}>
               <Button onClick={() => setActiveTab(index)}>{item.label}</Button>
@@ -29,7 +27,7 @@ const Tabs: React.FC<TTabsProps> = ({ items }) => {
         })}
       </ul>
       <div className="tabs__pane">
-        <Tab />
+        {items[activeTab] && items[activeTab].component}
       </div>
     </div>
   );
