@@ -1,4 +1,5 @@
 import { navigation as articlesNavigation } from '../modules/articles/config';
+import { navigation as formsNavigation } from '../modules/forms/config';
 import { navigation as newsNavigation } from '../modules/news/config';
 import { navigation as vacanciesNavigation } from '../modules/vacancies/config';
 
@@ -17,6 +18,7 @@ const navigation: TNavItem[] = [
         ],
       },
       ...vacanciesNavigation,
+      ...formsNavigation,
     ],
   },
 ];
