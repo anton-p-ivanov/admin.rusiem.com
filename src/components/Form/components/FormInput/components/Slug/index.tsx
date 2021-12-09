@@ -21,9 +21,16 @@ const Slug = React.forwardRef<HTMLInputElement, TSlugProps>(({ field }, ref) => 
     }));
   };
 
+  const onChange = (value: string) => {
+    setSlug(value);
+    if (typeof field.onChange === 'function') {
+      field.onChange(value);
+    }
+  };
+
   return (
     <div className="form-input form-input__slug">
-      <Text field={{ ...field, value: slug || field.value }} ref={ref} />
+      <Text field={{ ...field, value: slug || field.value, onChange }} ref={ref} />
       <Button onClick={onClick}>Slug</Button>
     </div>
   );
