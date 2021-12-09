@@ -1,27 +1,69 @@
 @import "src/assets/variables";
 
 $alert-colors: (
-        info: (background-color: $color-info, color: $color-white),
-        success: (background-color: $color-success, color: $color-white),
-        warning: (background-color: rgba($color-warning, .25), color: darken($color-warning, 15)),
-        danger: (background-color: $color-danger, color: $color-white),
+        info: $color-info,
+        success: $color-success,
+        warning: $color-warning,
+        danger: $color-danger,
 );
 
 .alert {
   display: flex;
+  align-items: stretch;
   justify-content: space-between;
   align-content: center;
-  align-items: center;
   background-color: transparent;
   border: solid $button-border-width transparent;
+  border-bottom: solid 3px transparent;
   padding: .75rem 1rem;
   border-radius: $border-radius;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 
-  @each $status, $color-map in $alert-colors {
+  &__icon {
+    display: flex;
+    align-items: center;
+    margin: 0 .75rem 0 0;
+
+    svg {
+      height: 30px;
+      width: 30px;
+      stroke: $color-white;
+      stroke-width: 2;
+    }
+  }
+
+  &__content {
+    flex: 1 0 auto;
+  }
+
+  &__header {
+    font-weight: bold;
+  }
+
+  &__message {
+    color: $color-gray-medium;
+  }
+
+  &__close {
+    display: flex;
+    align-items: center;
+
+    .btn {
+      padding: .25rem;
+    }
+  }
+
+  @each $status, $color in $alert-colors {
     &--#{$status} {
-      @each $property, $color in $color-map {
-        #{$property}: $color;
+      border-bottom-color: $color;
+      background-color: rgba($color, .10);
+
+      .alert__icon svg {
+        fill: $color;
+      }
+
+      .alert__close svg {
+        stroke: $color;
       }
     }
   }

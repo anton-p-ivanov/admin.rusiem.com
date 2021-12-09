@@ -54,7 +54,9 @@ const ListView: React.FC<TListViewProps> = (props) => {
           <ListViewSort columns={columns} />
         </Toolbar>
       )}
-      {state.isFiltered && <Alert variant="warning">Показаны все элементы с учётом параметров фильтрации</Alert>}
+      <Alert variant="info" isVisible={state.isFiltered} isDismissible={false}>
+        Показаны все элементы с учётом параметров фильтрации
+      </Alert>
       <DataTable columns={columns}>
         {state.status === 'FETCHING' && <DataTable.Loading span={columns.length} rows={pagination.size} /> }
         {state.status === 'FETCH_FAILED' && <DataTable.Error span={columns.length} />}
