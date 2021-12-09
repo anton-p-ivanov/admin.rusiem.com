@@ -20,3 +20,24 @@ export type TDataWorkflow = {
   updatedAt: string;
   isDeleted: boolean;
 };
+
+export type TDataEntity = {
+  uuid?: string;
+  title: string;
+  workflow?: TDataWorkflow;
+};
+
+export type TDataMediaFile = {
+  uuid?: string;
+};
+
+export type TDataTranslation = {
+  translations: {
+    [key: string]: Record<string, string>
+  }
+};
+
+export type TLookupResult = {
+  value: string,
+  label: string,
+};

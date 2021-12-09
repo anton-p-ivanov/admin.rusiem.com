@@ -40,10 +40,13 @@ const useReducer = (initialState?: TReducerState): TListViewReducer => {
     dispatch(handlers.fetchSent());
 
     const searchParams: Record<string, string> = {
-      page: state.pagination.page.toString(),
-      size: state.pagination.size.toString(),
-      sort: (state.sort.sortOrder === 'DESC' ? '-' : '') + state.sort.sortBy,
+      page: config.page.toString(),
+      size: config.size.toString(),
     };
+
+    if (state.sort) {
+      searchParams.sort = (state.sort.sortOrder === 'DESC' ? '-' : '') + state.sort.sortBy;
+    }
 
     const baseUrl = (process.env.API_BASE_URL || '/').replace(/\/$/, '');
     const requestUrl = new URL(`${baseUrl}${config.endpoint}`);

@@ -1,0 +1,31 @@
+@import "src/assets/variables";
+@import "src/assets/mixins";
+
+@include media-breakpoint-up(xl) {
+  .grid-view {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0 2rem;
+    grid-template-areas:  ". .";
+
+    &__columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:  ". .";
+      gap: 0 2rem;
+    }
+  }
+}
+
+.tabs--t10n {
+  .tabs__nav {
+    margin-bottom: 0;
+  }
+
+  .form__input--textarea {
+    border-top: 0;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+}

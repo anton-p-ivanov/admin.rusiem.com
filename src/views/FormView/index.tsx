@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import classNames from 'classnames';
 
-import { Form } from 'components';
+import { Alert, Form } from 'components';
 
+import Context from './context';
 import useFields from './hooks/useFields';
 import useHandlers from './hooks/useHandlers';
 import withStore, { useStore } from './store';
@@ -11,12 +12,17 @@ import withStore, { useStore } from './store';
 import type { TFormViewProps } from './types';
 
 const FormView: React.FC<TFormViewProps> = (props) => {
-  const { variant, endpoints, children } = props;
+  const ref = useRef<HTMLDivElement>(null);
+  const {
+    fields, defaults = {}, variant, endpoints, children,
+  } = props;
 
   const store = useStore();
   const handlers = useHandlers(props);
 
   useEffect(() => {
+    store.update({ ...store.state, data: defaults });
+
     if (endpoints && endpoints.request) {
       store.request(endpoints.request);
     }
@@ -26,15 +32,29 @@ const FormView: React.FC<TFormViewProps> = (props) => {
   }, []);
 
   const className = classNames('form-view', variant && `form-view--${variant}`);
+  const isSubmitFailed = store.state.status === 'SUBMIT_FAILED';
+  const isSubmitSucceed = store.state.status === 'SUBMIT_SUCCEED';
+
+  useEffect(() => {
+    if ((isSubmitFailed || isSubmitSucceed) && ref.current) {
+      ref.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [isSubmitSucceed, isSubmitFailed]);
 
   return (
-    <div className={className}>
-      <Form onSubmit={handlers.submit}>
-        {children}
-      </Form>
-    </div>
+    <Context.Provider value={{ fields: useFields(fields || {}) }}>
+      <div ref={ref}>
+        <Alert variant="warning" isVisible={isSubmitFailed}>Вероятно, некоторые поля формы заполнены неверно</Alert>
+        <Alert variant="success" isVisible={isSubmitSucceed}>Изменения успешно сохранены</Alert>
+      </div>
+      <div className={className}>
+        <Form onSubmit={handlers.submit}>
+          {children}
+        </Form>
+      </div>
+    </Context.Provider>
   );
 };
 
-export { withStore, useFields };
+export { withStore, useFields, Context };
 export default FormView;

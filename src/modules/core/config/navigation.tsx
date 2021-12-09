@@ -1,3 +1,5 @@
+import { navigation as mailNavigation } from '../modules/mail/config';
+
 import type { TNavItem } from 'config/types';
 
 const navigation: TNavItem[] = [
@@ -5,6 +7,12 @@ const navigation: TNavItem[] = [
     title: 'Главная панель',
     icon: 'home',
     route: '/',
+  },
+  {
+    title: 'Система',
+    items: [
+      ...mailNavigation,
+    ],
   },
 ];
 

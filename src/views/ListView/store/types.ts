@@ -15,9 +15,9 @@ export type TReducerState = {
   status: TReducerStatus;
   data: TReducerData[];
   pagination: TListViewPagination;
-  sort: TListViewSort;
   isFiltered: boolean;
   timestamp: number;
+  sort?: TListViewSort;
 };
 
 export type TReducerAction = {

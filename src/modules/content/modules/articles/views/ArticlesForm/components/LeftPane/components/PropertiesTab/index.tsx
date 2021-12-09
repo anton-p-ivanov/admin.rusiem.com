@@ -13,7 +13,7 @@ const PropertiesTab: React.FC = () => {
         <Form.Field field={fields.publishedAt} />
       </div>
       <Form.Field field={fields.title} />
-      <Form.Field field={fields.slug} />
+      <Form.Field field={{ ...fields.slug, attrs: { value: fields.title.value } }} />
       <Form.Field field={fields.description} />
       <Form.Field field={fields.content} />
       <Form.Field field={fields.source} />

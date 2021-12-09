@@ -1,6 +1,7 @@
 import React from 'react';
 
 import type { TReducerData, TReducerState } from './store/types';
+import type { TFormFields } from 'components/Form/types';
 
 export type TFormViewEndpoints = {
   submit?: string;
@@ -9,6 +10,8 @@ export type TFormViewEndpoints = {
 };
 
 export type TFormViewProps = {
+  fields: TFormFields;
+  defaults?: TReducerData;
   variant?: string;
   endpoints?: TFormViewEndpoints;
   onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
@@ -25,4 +28,8 @@ export type TFormViewReducer = {
 
 export type TUseHandlers = (props: TFormViewProps) => {
   submit: (event: React.FormEvent<HTMLFormElement>) => void;
+};
+
+export type TFormViewContext = {
+  fields: TFormFields;
 };

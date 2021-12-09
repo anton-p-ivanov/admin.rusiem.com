@@ -13,14 +13,7 @@ const useHandlers: TUseHandlers = (props) => {
   const navigate = useNavigate();
 
   const returnToList = () => {
-    const returnUrl = endpoints?.success || 'GET:/';
-    const [method, url] = returnUrl.split(':');
-
-    if (method !== 'GET') {
-      throw Error('Redirect can only be processed via GET method');
-    }
-
-    navigate(url);
+    navigate(endpoints?.success || '/');
   };
 
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {

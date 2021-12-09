@@ -12,9 +12,9 @@ const INITIAL_STATE: TReducerState = {
 };
 
 const Reducer: TReducer = (state, action) => {
-  const { payload } = action;
+  const { type, payload } = action;
 
-  switch (action.type) {
+  switch (type) {
     case types.RESET_STATE:
       return { ...state, ...INITIAL_STATE };
 

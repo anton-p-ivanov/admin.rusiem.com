@@ -1,0 +1,10 @@
+@import "src/assets/variables";
+
+.data-table__error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 2rem 0;
+  color: $color-danger;
+}

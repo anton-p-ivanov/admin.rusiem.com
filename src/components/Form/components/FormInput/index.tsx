@@ -8,6 +8,7 @@ import type { TCollectionField } from './components/Collection/types';
 import type { TFileField } from './components/File/types';
 import type { TNumberField } from './components/Number/types';
 import type { TSelectField } from './components/Select/types';
+import type { TSlugField } from './components/Slug/types';
 import type { TTextField } from './components/Text/types';
 import type { TTextAreaField } from './components/TextArea/types';
 import type { TFormInputProps } from './types';
@@ -24,6 +25,7 @@ type TFormInput = React.FC<TFormInputProps> & {
   Number: typeof Input.Number;
   Password: typeof Input.Password;
   Select: typeof Input.Select;
+  Slug: typeof Input.Slug;
   Text: typeof Input.Text;
   TextArea: typeof Input.TextArea;
 };
@@ -50,6 +52,8 @@ const FormInput: TFormInput = (props) => {
       return <Input.Password field={field as TTextField} ref={field.ref} />;
     case 'select':
       return <Input.Select field={field as TSelectField} />;
+    case 'slug':
+      return <Input.Slug field={field as TSlugField} ref={field.ref} />;
     case 'textarea':
       return <Input.TextArea field={field as TTextAreaField} />;
     default:
@@ -70,6 +74,7 @@ FormInput.Number = Input.Number;
 FormInput.Password = Input.Password;
 // // FormInput.Roles = Inputs.Roles;
 FormInput.Select = Input.Select;
+FormInput.Slug = Input.Slug;
 // // FormInput.Sites = Inputs.Sites;
 FormInput.Text = Input.Text;
 FormInput.TextArea = Input.TextArea;
