@@ -1,3 +1,4 @@
+import { routes as formsRoutes } from '../modules/forms/config';
 import { routes as mailRoutes } from '../modules/mail/config';
 import MainPage from '../pages/MainPage';
 
@@ -9,6 +10,7 @@ const routes: TRoute[] = [
     title: 'Главная',
     component: MainPage,
   },
+  ...formsRoutes,
   ...mailRoutes,
 ];
 

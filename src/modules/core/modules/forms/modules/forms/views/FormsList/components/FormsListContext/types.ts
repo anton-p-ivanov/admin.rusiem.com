@@ -1,4 +1,4 @@
-import { TDataForm } from '@forms/config/types';
+import { TDataForm } from '../../../../config/types';
 
 export type TFormsListContextProps = {
   data: TDataForm;

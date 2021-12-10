@@ -1,4 +1,4 @@
-import { TDataForm } from '@forms/config/types';
+import { TDataForm } from '../../config/types';
 
 const now = new Date();
 const date = new Date(now.getTime() - (now.getTimezoneOffset() * 60 * 1000)).toISOString();

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { DataFormat, Icon } from 'components';
+import { DataFormat, Icon } from 'components/index';
 
 import FormsListContext from '../FormsListContext';
 

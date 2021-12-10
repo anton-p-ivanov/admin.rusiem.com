@@ -1,3 +1,4 @@
+import { navigation as formsNavigation } from '../modules/forms/config';
 import { navigation as mailNavigation } from '../modules/mail/config';
 
 import type { TNavItem } from 'config/types';
@@ -12,6 +13,7 @@ const navigation: TNavItem[] = [
     title: 'Система',
     items: [
       ...mailNavigation,
+      ...formsNavigation,
     ],
   },
 ];

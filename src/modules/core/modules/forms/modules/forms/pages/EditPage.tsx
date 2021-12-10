@@ -1,16 +1,18 @@
 import React from 'react';
 
-import FormsList from '@forms/views/FormsList';
 import PageView from 'views/PageView';
 
-const ListPage: React.FC = () => {
+import FormsForm from '../views/FormsForm';
+
+const EditPage: React.FC = () => {
   const title = 'Контент :: Веб-формы';
 
   return (
     <PageView title={title}>
-      <FormsList />
+      <h2>Изменение элемента</h2>
+      <FormsForm />
     </PageView>
   );
 };
 
-export default ListPage;
+export default EditPage;
