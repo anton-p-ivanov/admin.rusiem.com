@@ -4,22 +4,22 @@ import type { TRoute } from 'config/types';
 
 const routes: TRoute[] = [
   {
-    path: '/content/forms',
+    path: '/forms',
     title: 'Список элементов',
     component: React.lazy(() => import('@forms/pages/ListPage')),
   },
   {
-    path: '/content/forms/create',
+    path: '/forms/create',
     title: 'Создание нового элемента',
     component: React.lazy(() => import('@forms/pages/CreatePage')),
   },
   {
-    path: '/content/forms/:uuid/edit',
+    path: '/forms/:uuid/edit',
     title: 'Изменение элемента',
     component: React.lazy(() => import('@forms/pages/EditPage')),
   },
   {
-    path: '/content/forms/:uuid/copy',
+    path: '/forms/:uuid/copy',
     title: 'Копирование элемента',
     component: React.lazy(() => import('@forms/pages/CopyPage')),
   },

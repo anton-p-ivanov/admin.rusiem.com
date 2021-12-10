@@ -4,7 +4,7 @@ const navigation: TNavItem[] = [
   {
     title: 'Веб-формы',
     icon: 'database',
-    route: '/content/forms',
+    route: '/forms',
   },
 ];
 

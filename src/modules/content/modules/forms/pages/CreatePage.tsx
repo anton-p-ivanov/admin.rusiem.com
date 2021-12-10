@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import FormsForm from '@forms/views/FormsForm';
 import PageView from 'views/PageView';
 
 const CreatePage: React.FC = () => {
@@ -8,6 +9,7 @@ const CreatePage: React.FC = () => {
   return (
     <PageView title={title}>
       <h2>Создание нового элемента</h2>
+      <FormsForm isNewElement />
     </PageView>
   );
 };
