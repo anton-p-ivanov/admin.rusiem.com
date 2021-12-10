@@ -27,7 +27,7 @@
       "utils/*": ["utils/*"],
       "wrappers/*": ["wrappers/*"],
       "@articles/*": ["modules/content/modules/articles/*"],
-      "@forms/*": ["modules/content/modules/forms/*"],
+      "@forms/*": ["modules/core/modules/forms/*"],
       "@news/*": ["modules/content/modules/news/*"],
       "@vacancies/*": ["modules/content/modules/vacancies/*"],
       "@mail/*": ["modules/core/modules/mail/*"]
