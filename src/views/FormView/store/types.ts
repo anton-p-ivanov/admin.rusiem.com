@@ -23,7 +23,8 @@ export type TReducerStatus =
   | 'FETCH_FAILED'
   | 'SUBMITTING'
   | 'SUBMIT_SUCCEED'
-  | 'SUBMIT_FAILED';
+  | 'SUBMIT_FAILED'
+  | 'VALIDATION_FAILED';
 
 export type TReducerState = {
   status: TReducerStatus;

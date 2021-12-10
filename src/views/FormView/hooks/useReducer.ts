@@ -58,7 +58,7 @@ const useReducer = (initialState?: TReducerState): TFormViewReducer => {
             ? (error.response?.data || {})
             : { _error: ['An error occurred while submitting data'] };
 
-          dispatch(handlers.submitFailed(errors));
+          dispatch(handlers.submitFailed(errors, error.response?.status === 422));
           reject(error);
         });
     });

@@ -40,8 +40,8 @@ const submitSucceed = (payload: TReducerData): TReducerAction => ({
   payload: { data: payload } as TReducerState,
 });
 
-const submitFailed = (payload: TReducerErrors): TReducerAction => ({
-  type: types.SUBMIT_FAILED,
+const submitFailed = (payload: TReducerErrors, hasValidationErrors?: boolean): TReducerAction => ({
+  type: hasValidationErrors ? types.VALIDATION_FAILED : types.SUBMIT_FAILED,
   payload: { errors: payload } as TReducerState,
 });
 
