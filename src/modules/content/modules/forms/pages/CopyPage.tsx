@@ -1,5 +1,6 @@
 import React from 'react';
 
+import FormsForm from '@forms/views/FormsForm';
 import PageView from 'views/PageView';
 
 const CopyPage: React.FC = () => {
@@ -8,6 +9,7 @@ const CopyPage: React.FC = () => {
   return (
     <PageView title={title}>
       <h2>Копирование элемента</h2>
+      <FormsForm isNewElement />
     </PageView>
   );
 };

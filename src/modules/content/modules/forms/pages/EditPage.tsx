@@ -1,5 +1,6 @@
 import React from 'react';
 
+import FormsForm from '@forms/views/FormsForm';
 import PageView from 'views/PageView';
 
 const EditPage: React.FC = () => {
@@ -8,6 +9,7 @@ const EditPage: React.FC = () => {
   return (
     <PageView title={title}>
       <h2>Изменение элемента</h2>
+      <FormsForm />
     </PageView>
   );
 };
