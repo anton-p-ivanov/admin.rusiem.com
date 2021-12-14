@@ -1,0 +1,26 @@
+@use "sass:math";
+@import "src/assets/variables";
+
+.data-table {
+  &__col {
+    &--isDefault {
+      width: math.div(70px, 16px) + $cell-padding-x * 2;
+    }
+
+    &--type {
+      width: math.div(150px, 16px) + $cell-padding-x * 2;
+    }
+  }
+
+  &__cell {
+    &--isDefault {
+      text-align: center;
+    }
+  }
+
+  &__header {
+    &--isDefault {
+      text-align: center;
+    }
+  }
+}

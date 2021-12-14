@@ -8,3 +8,5 @@ export const FETCH_FAILED = 5;
 export const SUBMIT_SENT = 6;
 export const SUBMIT_SUCCEED = 7;
 export const SUBMIT_FAILED = 8;
+
+export const VALIDATION_FAILED = 9;
