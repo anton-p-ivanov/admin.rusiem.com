@@ -4,6 +4,7 @@ const navigation: TNavItem[] = [
   {
     title: 'Почтовые шаблоны',
     route: '/mail/templates',
+    icon: 'layers',
   },
 ];
 

@@ -4,10 +4,14 @@ import { Link } from 'react-router-dom';
 import { Button, DataToolbar, Icon } from 'components';
 import Context from 'wrappers/withOffCanvas/context';
 
+import { useStore } from '../../store';
+
 import type { TListViewToolbarProps } from './types';
 
 const ListViewToolbar: React.FC<TListViewToolbarProps> = (props) => {
   const { toggle } = useContext(Context);
+  const { refresh } = useStore();
+
   const {
     createUrl,
     createLabel = 'Добавить',
@@ -20,6 +24,11 @@ const ListViewToolbar: React.FC<TListViewToolbarProps> = (props) => {
     return toggle && toggle();
   };
 
+  const refreshHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    refresh();
+  };
+
   return (
     <DataToolbar>
       <DataToolbar.Group>
@@ -28,6 +37,11 @@ const ListViewToolbar: React.FC<TListViewToolbarProps> = (props) => {
             <Link to={createUrl} className="btn btn--success">{createLabel}</Link>
           </DataToolbar.Item>
         )}
+        <DataToolbar.Item>
+          <Button onClick={refreshHandler}>
+            <Icon name="refresh-cw" title="Обновить" />
+          </Button>
+        </DataToolbar.Item>
       </DataToolbar.Group>
       <DataToolbar.Group>
         <DataToolbar.Item>

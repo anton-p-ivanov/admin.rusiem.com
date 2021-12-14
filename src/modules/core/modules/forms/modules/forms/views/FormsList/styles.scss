@@ -1,0 +1,33 @@
+@use "sass:math";
+@import "../../../../../../../../assets/variables";
+
+.data-table {
+  &__col {
+    &--updatedAt {
+      width: math.div(170px, 16px) + $cell-padding-x * 2;
+    }
+
+    &--publishedAt {
+      width: math.div(130px, 16px) + $cell-padding-x * 2;
+    }
+
+    &--isPublished,
+    &--locale {
+      width: math.div(70px, 16px) + $cell-padding-x * 2;
+    }
+  }
+
+  &__cell {
+    &--locale,
+    &--isPublished {
+      text-align: center;
+    }
+  }
+
+  &__header {
+    &--locale,
+    &--isPublished {
+      text-align: center;
+    }
+  }
+}

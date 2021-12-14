@@ -39,6 +39,9 @@ const Reducer: TReducer = (state, action) => {
     case types.SUBMIT_FAILED:
       return { ...state, status: 'SUBMIT_FAILED', ...payload };
 
+    case types.VALIDATION_FAILED:
+      return { ...state, status: 'VALIDATION_FAILED', ...payload };
+
     default:
       return state;
   }

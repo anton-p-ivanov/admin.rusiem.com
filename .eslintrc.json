@@ -74,6 +74,7 @@
         "extensions": [".ts", ".tsx"],
         "map": [
           ["@articles", "./src/modules/content/modules/articles"],
+          ["@forms", "./src/modules/core/modules/forms"],
           ["@news", "./src/modules/content/modules/news"],
           ["@vacancies", "./src/modules/content/modules/vacancies"],
           ["@mail", "./src/modules/core/modules/mail"]

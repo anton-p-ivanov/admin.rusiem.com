@@ -32,19 +32,22 @@ const FormView: React.FC<TFormViewProps> = (props) => {
   }, []);
 
   const className = classNames('form-view', variant && `form-view--${variant}`);
+
+  const isValidationFailed = store.state.status === 'VALIDATION_FAILED';
   const isSubmitFailed = store.state.status === 'SUBMIT_FAILED';
   const isSubmitSucceed = store.state.status === 'SUBMIT_SUCCEED';
 
   useEffect(() => {
-    if ((isSubmitFailed || isSubmitSucceed) && ref.current) {
+    if ((isSubmitFailed || isSubmitSucceed || isValidationFailed) && ref.current) {
       ref.current.scrollIntoView({ behavior: 'smooth' });
     }
-  }, [isSubmitSucceed, isSubmitFailed]);
+  }, [isSubmitSucceed, isSubmitFailed, isValidationFailed]);
 
   return (
     <Context.Provider value={{ fields: useFields(fields || {}) }}>
       <div ref={ref}>
-        <Alert variant="warning" isVisible={isSubmitFailed}>Вероятно, некоторые поля формы заполнены неверно</Alert>
+        <Alert variant="danger" isVisible={isSubmitFailed}>Ошибка сохранения изменений. Пожалуйста, попробуйте позже.</Alert>
+        <Alert variant="warning" isVisible={isValidationFailed}>Вероятно, некоторые поля формы заполнены неверно</Alert>
         <Alert variant="success" isVisible={isSubmitSucceed}>Изменения успешно сохранены</Alert>
       </div>
       <div className={className}>
