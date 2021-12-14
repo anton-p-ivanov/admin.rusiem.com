@@ -23,7 +23,7 @@ module.exports = {
     extensions: ["*", ".js", ".jsx", ".tsx", ".ts"],
     alias: {
       '@articles': path.resolve(__dirname, "src/modules/content/modules/articles"),
-      '@forms': path.resolve(__dirname, "src/modules/content/modules/forms"),
+      '@forms': path.resolve(__dirname, "src/modules/core/modules/forms"),
       '@news': path.resolve(__dirname, "src/modules/content/modules/news"),
       '@vacancies': path.resolve(__dirname, "src/modules/content/modules/vacancies"),
       '@mail': path.resolve(__dirname, "src/modules/core/modules/mail")

@@ -1,22 +1,42 @@
-import type { TDataMediaFile, TDataWorkflow } from 'config/types';
+import type { TDataEntity } from 'config/types';
 
-export type TDataMailTemplate = {
-  uuid?: string,
-  code: string,
-  sender: string,
-  recipient: string,
-  extraHeaders?: string,
-  translations: {
-    [key: string]: TDataMailTemplateLang
-  },
-  file?: TDataMediaFile,
-  workflow?: TDataWorkflow,
+export type TDataForm = TDataEntity & {
+  slug: string;
+  context: string;
+  template?: string;
+  isPublished: boolean;
+  publishedAt: string;
+  activeFrom: string;
+  activeTo: string;
+  statuses: TDataFormStatus[];
 };
 
-export type TDataMailTemplateLang = {
+export type TDataFormStatus = {
+  uuid?: string;
+  template?: string;
+  form?: string;
+  name: string;
+  type?: string;
+  isDefault: boolean;
+  translations: {
+    [key: string]: TDataFormStatusLang
+  },
+};
+
+export type TDataFormStatusLang = {
+  [key: string]: string | undefined;
+  uuid?: string;
+  locale?: string,
+  status?: string,
+  title: string,
+};
+
+export type TFormStatusTypes = {
   [key: string]: string;
-  locale: string,
-  subject: string,
-  text: string,
-  html: string,
+};
+
+export const FormStatusTypes: TFormStatusTypes = {
+  C: 'Новый',
+  A: 'Утвержденный',
+  R: 'Отклоненный',
 };
