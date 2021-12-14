@@ -10,23 +10,23 @@ import PageView from 'views/PageView';
 import StatusesList from '../views/StatusesList';
 
 const ListPage: React.FC = () => {
-  const { uuid = 'unknown' } = useParams();
-  const [form, setForm] = useState<TDataForm>();
+  const { form = 'unknown' } = useParams();
+  const [webForm, setWebForm] = useState<TDataForm>();
   const title = 'Контент :: Веб-формы :: Статусы';
 
   useEffect(() => {
-    const config: AxiosRequestConfig = { url: `/forms/${uuid}` };
+    const config: AxiosRequestConfig = { url: `/forms/${form}` };
 
     API.request<TDataForm>(config)
-      .then((response) => setForm(response.data))
+      .then((response) => setWebForm(response.data))
       .catch((error: AxiosError) => error);
-  }, [uuid]);
+  }, [form]);
 
   return (
     <PageView title={title}>
-      {form && (
+      {webForm && (
         <>
-          <h2>{`Список статусов веб-формы "${form.title}"`}</h2>
+          <h2>{`Список статусов веб-формы "${webForm.title}"`}</h2>
           <StatusesList />
         </>
       )}

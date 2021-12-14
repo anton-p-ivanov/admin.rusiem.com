@@ -8,11 +8,11 @@ import settings from './settings';
 import './styles.scss';
 
 const StatusesList: React.FC = () => {
-  const { uuid = 'unknown' } = useParams();
+  const { form = 'unknown' } = useParams();
 
   return (
     <ListView
-      endpoint={`/forms/${uuid}/statuses`}
+      endpoint={`/forms/${form}/statuses`}
       columns={settings.columns}
       templates={settings.templates}
       sort={{ sortBy: 'title', sortOrder: 'ASC' }}

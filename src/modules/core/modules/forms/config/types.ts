@@ -8,6 +8,7 @@ export type TDataForm = TDataEntity & {
   publishedAt: string;
   activeFrom: string;
   activeTo: string;
+  statuses: TDataFormStatus[];
 };
 
 export type TDataFormStatus = {
@@ -15,7 +16,7 @@ export type TDataFormStatus = {
   template?: string;
   form?: string;
   name: string;
-  type: string;
+  type?: string;
   isDefault: boolean;
   translations: {
     [key: string]: TDataFormStatusLang
@@ -23,9 +24,19 @@ export type TDataFormStatus = {
 };
 
 export type TDataFormStatusLang = {
-  [key: string]: string;
-  uuid: string;
-  locale: string,
-  status: string,
+  [key: string]: string | undefined;
+  uuid?: string;
+  locale?: string,
+  status?: string,
   title: string,
+};
+
+export type TFormStatusTypes = {
+  [key: string]: string;
+};
+
+export const FormStatusTypes: TFormStatusTypes = {
+  C: 'Новый',
+  A: 'Утвержденный',
+  R: 'Отклоненный',
 };

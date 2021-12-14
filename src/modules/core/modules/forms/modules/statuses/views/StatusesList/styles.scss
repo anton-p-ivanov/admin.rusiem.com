@@ -6,6 +6,10 @@
     &--isDefault {
       width: math.div(70px, 16px) + $cell-padding-x * 2;
     }
+
+    &--type {
+      width: math.div(150px, 16px) + $cell-padding-x * 2;
+    }
   }
 
   &__cell {

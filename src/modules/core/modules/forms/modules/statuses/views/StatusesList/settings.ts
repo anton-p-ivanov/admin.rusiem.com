@@ -5,6 +5,7 @@ import type { TListViewColumn, TListViewTemplates } from 'views/ListView/types';
 const columns: TListViewColumn[] = [
   { name: 'title', title: 'Название' },
   { name: 'name', title: 'Символьный код' },
+  { name: 'type', title: 'Тип' },
   { name: 'isDefault', title: 'Умолч.' },
   { name: 'context', title: '' },
 ];

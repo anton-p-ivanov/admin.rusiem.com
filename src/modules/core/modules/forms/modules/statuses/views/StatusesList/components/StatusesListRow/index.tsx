@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { FormStatusTypes } from '@forms/config/types';
 import { Icon } from 'components/index';
 
 import StatusesListContext from '../StatusesListContext';
@@ -13,6 +14,9 @@ const StatusesListRow: React.FC<TStatusesListRowProps> = ({ data }) => (
     </td>
     <td className="data-table__cell data-table__cell--name">
       {data.name}
+    </td>
+    <td className="data-table__cell data-table__cell--type">
+      {FormStatusTypes[data.type]}
     </td>
     <td className="data-table__cell data-table__cell--isDefault">
       {data.isDefault ? <Icon name="check" variant="success" /> : <Icon name="x" variant="muted" />}
