@@ -13,19 +13,21 @@ const Slug = React.forwardRef<HTMLInputElement, TSlugProps>(({ field }, ref) => 
   const [slug, setSlug] = useState<string>('');
   const { attrs } = field;
 
-  const onClick = () => {
-    setSlug(slugify(attrs.value, {
-      replacement: '-',
-      remove: /\./,
-      lower: true,
-    }));
-  };
-
   const onChange = (value: string) => {
     setSlug(value);
     if (typeof field.onChange === 'function') {
       field.onChange(value);
     }
+  };
+
+  const onClick = () => {
+    const value = slugify(attrs.value, {
+      replacement: '-',
+      remove: /\./,
+      lower: true,
+    });
+
+    onChange(value);
   };
 
   return (
