@@ -1,0 +1,20 @@
+@import "src/assets/variables";
+
+.auth-view {
+  .form {
+    &__label {
+      display: none;
+    }
+
+    &__actions {
+      justify-content: center;
+      border: 0;
+    }
+
+    &__fields {
+      width: 300px;
+      margin: auto;
+    }
+  }
+}
+
