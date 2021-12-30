@@ -11,7 +11,7 @@ const MainPage: React.FC = () => {
       <p>
         Исходный код проекта можно найти в моем репозитории на github
         <br />
-        <a href="https://github.com/anton-p-ivanov/admin.rusiem.com" target="_blank" rel="noreferrer">https://github.com/anton-p-ivanov/admin.rusiem.com</a>
+        <a href="https://github.com/anton-p-ivanov/admin.rusiem.com/tree/dev" target="_blank" rel="noreferrer">https://github.com/anton-p-ivanov/admin.rusiem.com/tree/dev</a>
       </p>
       <ul>
         <li>
