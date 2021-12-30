@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkadmin_rusiem_com=self.webpackChunkadmin_rusiem_com||[]).push([[76],{6076:(e,t,n)=>{n.r(t),n.d(t,{default:()=>r});var c=n(7294),l=n(1007),m=n(1377);const r=function(){return c.createElement(m.Z,{title:"Контент :: Пресс-центр :: Новости"},c.createElement("h2",null,"Создание нового элемента"),c.createElement(l.Z,{isNewElement:!0}))}}}]);

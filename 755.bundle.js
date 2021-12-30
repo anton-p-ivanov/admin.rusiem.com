@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkadmin_rusiem_com=self.webpackChunkadmin_rusiem_com||[]).push([[755],{755:(e,t,n)=>{n.r(t),n.d(t,{default:()=>r});var c=n(7294),l=n(1377),m=n(5525);const r=function(){return c.createElement(l.Z,{title:"Контент :: Веб-формы"},c.createElement("h2",null,"Создание нового элемента"),c.createElement(m.Z,{isNewElement:!0}))}}}]);

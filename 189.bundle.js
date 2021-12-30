@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkadmin_rusiem_com=self.webpackChunkadmin_rusiem_com||[]).push([[189],{8189:(e,t,n)=>{n.r(t),n.d(t,{default:()=>r});var c=n(7294),l=n(1377),m=n(2813);const r=function(){return c.createElement(l.Z,{title:"Контент :: Вакансии"},c.createElement("h2",null,"Копирование элемента"),c.createElement(m.Z,{isNewElement:!0}))}}}]);
