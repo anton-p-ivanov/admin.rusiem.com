@@ -1,23 +1,41 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 
-import ListView, { withStore } from 'views/ListView';
+import { v4 } from 'uuid';
 
+import { Button, DataTable } from 'components/index';
+import ConfirmView from 'views/ConfirmView';
+import withConfirm from 'wrappers/withConfirm';
+import withModal, { Context as ModalContext } from 'wrappers/withModal';
+
+import Context from './context';
 import settings from './settings';
+
+import type { TStatusesList } from './types';
 
 import './styles.scss';
 
-const StatusesList: React.FC = () => {
-  const { form = 'unknown' } = useParams();
+const StatusesList: React.FC<TStatusesList> = (props) => {
+  const { data, toggleModal } = props;
+  const { columns, templates } = settings;
+  const createHandler = () => toggleModal && toggleModal(true, { uuid: undefined });
 
   return (
-    <ListView
-      endpoint={`/forms/${form}/statuses`}
-      columns={settings.columns}
-      templates={settings.templates}
-      sort={{ sortBy: 'title', sortOrder: 'ASC' }}
-    />
+    <ModalContext.Consumer>
+      {(context) => (
+        <Context.Provider value={{ toggleModal, toggleConfirm: context.toggle }}>
+          <DataTable columns={columns}>
+            {data.length === 0 && <DataTable.Empty span={columns.length} />}
+            {data.map((item) => (
+              <DataTable.Row key={v4()} template={<templates.row data={item} />} />
+            ))}
+          </DataTable>
+          <div>
+            <Button size="small" onClick={createHandler}>Добавить</Button>
+          </div>
+        </Context.Provider>
+      )}
+    </ModalContext.Consumer>
   );
 };
 
-export default withStore(StatusesList);
+export default withModal(StatusesList, withConfirm(ConfirmView));

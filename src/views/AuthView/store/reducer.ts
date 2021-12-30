@@ -5,8 +5,8 @@ import type { TReducer, TReducerState } from './types';
 
 const INITIAL_STATE: TReducerState = {
   data: {
-    username: '',
-    password: '',
+    username: 'developer@rusiem.com',
+    password: 'P@ssw0rd',
   },
   errors: {},
   status: 'WAITING',

@@ -74,7 +74,7 @@ const tags: TFormField<string[]> = {
   attrs: {
     isMultiple: true,
     size: 10,
-    optionsCallback: (): Promise<TSelectOptions> => API.lookup<TSelectOptions>('/catalog/tags?context=news'),
+    optionsCallback: (): Promise<TSelectOptions> => API.lookup<TSelectOptions>('/catalog/tags/lookup?context=news'),
   },
 };
 

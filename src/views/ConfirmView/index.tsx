@@ -25,7 +25,7 @@ const ConfirmView: React.FC<TConfirmViewProps> = (props) => {
     <Modal title="Требуется подтверждение" size="small">
       <div className="confirm-view">
         <div className="confirm-view__description">{description}</div>
-        <Form>
+        <div className="confirm-view__form">
           <Form.Field field={fields.password} />
           <Form.Actions>
             <Button onClick={handlers.confirm} isDisabled={isDisabled} variant="danger">
@@ -35,7 +35,7 @@ const ConfirmView: React.FC<TConfirmViewProps> = (props) => {
               Отменить
             </Button>
           </Form.Actions>
-        </Form>
+        </div>
       </div>
     </Modal>
   );

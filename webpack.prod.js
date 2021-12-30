@@ -8,7 +8,7 @@ const path = require('path');
 module.exports = merge(common, {
   mode: 'production',
   output: {
-    publicPath: '/react/',
+    publicPath: '/',
     clean: true,
   },
   plugins: [

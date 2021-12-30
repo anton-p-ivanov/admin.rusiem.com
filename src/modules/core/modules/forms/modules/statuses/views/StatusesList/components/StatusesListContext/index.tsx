@@ -1,27 +1,25 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 
 import { DropDown } from 'components/index';
 import { ListViewContext } from 'views/ListView/components';
 
+import useHandlers from '../../hooks/useHandlers';
+
 import type { TStatusesListContextProps } from './types';
 
 const StatusesListContext: React.FC<TStatusesListContextProps> = ({ data }) => {
-  const { form = 'unknown' } = useParams();
+  const handlers = useHandlers(data);
 
   return (
     <ListViewContext data={{ ...data, title: data.translations.ru.title }} baseUrl="/forms/statuses">
-      {(context) => {
-        const uuid = data.uuid || 'unknown';
-        return (
-          <>
-            <DropDown.Link icon="edit" route={`/forms/${form}/statuses/${uuid}/edit`}>Изменить</DropDown.Link>
-            <DropDown.Link icon="copy" route={`/forms/${form}/statuses/${uuid}/copy`}>Копировать</DropDown.Link>
-            <DropDown.Divider />
-            <DropDown.Button icon="trash-2" onClick={context.remove}>Удалить</DropDown.Button>
-          </>
-        );
-      }}
+      {() => (
+        <>
+          <DropDown.Button icon="edit" onClick={handlers.update}>Изменить</DropDown.Button>
+          <DropDown.Button icon="copy" onClick={handlers.update}>Копировать</DropDown.Button>
+          <DropDown.Divider />
+          <DropDown.Button icon="trash-2" onClick={handlers.delete}>Удалить</DropDown.Button>
+        </>
+      )}
     </ListViewContext>
   );
 };

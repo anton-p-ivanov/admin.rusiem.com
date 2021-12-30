@@ -11,6 +11,7 @@ const defaults: TDataForm = {
   isPublished: true,
   publishedAt: date,
   template: '',
+  statuses: [],
 };
 
 export default defaults;

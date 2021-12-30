@@ -12,6 +12,7 @@ export type TDataForm = TDataEntity & {
 };
 
 export type TDataFormStatus = {
+  [key: string]: string | boolean | Record<string, TDataFormStatusLang> | undefined;
   uuid?: string;
   template?: string;
   form?: string;

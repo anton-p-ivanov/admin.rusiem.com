@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Alert, Button, Form } from 'components';
 
-// import FormView, { withStore, Context } from 'views/FormView';
 import { useHandlers, useFields } from './hooks';
 import withStore, { useStore } from './store';
 
